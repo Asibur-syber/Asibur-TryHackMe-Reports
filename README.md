@@ -14,7 +14,7 @@
 
 40+ professional penetration testing & CTF reports based on real TryHackMe target IPs (10.10.x.x).  
 Detailed walkthroughs, screenshots, vulnerability findings & proof-of-concept (PoC).  
-By *Asibur Rahaman* — Ethical Hacker & Web Recon Specialist.
+By Asibur Rahaman — Ethical Hacker & Web Recon Specialist.
 
 > Focused on clean reporting, actionable findings & reproducible exploits.
 
@@ -60,8 +60,8 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 | 9  | Windows Fundamentals 2         | [View](#) |
 | 10 | Windows Fundamentals 3         | [View](#) |
 
-*Skills:* IP, Ports, Linux basics, OS concepts  
-*Sample Report:* Linux Commands List + Network Diagram
+Skills: IP, Ports, Linux basics, OS concepts  
+Sample Report: Linux Commands List + Network Diagram
 
 ---
 
@@ -80,8 +80,8 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 | 19 | OWASP Top 10             | [View](#) |
 | 20 | Web Fundamentals         | [View](#) |
 
-*Skills:* SQLi, XSS, CSRF, Burp testing  
-*Sample Report:* SQLi/XSS Walkthrough + GitHub Web Hacks Repo
+Skills: SQLi, XSS, CSRF, Burp testing  
+Sample Report: SQLi/XSS Walkthrough + GitHub Web Hacks Repo
 
 ---
 
@@ -100,8 +100,8 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 | 29 | Ignite          | [View](#) |
 | 30 | Relevant        | [View](#) |
 
-*Skills:* Enumeration, exploitation, flag capturing  
-*Sample Report:* Vulnversity + Daily Bugle → Full PDF report
+Skills: Enumeration, exploitation, flag capturing  
+Sample Report: Vulnversity + Daily Bugle → Full PDF report
 
 ---
 
@@ -120,8 +120,8 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 | 39 | Post Exploitation Basics     | [View](#) |
 | 40 | Report Writing Room          | [View](#) |
 
-*Skills:* Recon, LFI/RFI, privilege escalation  
-*Sample Report:* PrivEsc Walkthrough + Pentest PDF Template
+Skills: Recon, LFI/RFI, privilege escalation  
+Sample Report: PrivEsc Walkthrough + Pentest PDF Template
 
 ---
 
@@ -149,7 +149,7 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 
 ## ✒ About Me
 
-*Asibur Rahaman* — Ethical Hacker, Web Recon Specialist & CTF Player.  
+Asibur Rahaman — Ethical Hacker, Web Recon Specialist & CTF Player.  
 Passionate about reproducible exploits, clean documentation & real-world impact.
 
 ⚙ Tools: Linux, Burp Suite, Nmap, Gobuster, manual recon  
