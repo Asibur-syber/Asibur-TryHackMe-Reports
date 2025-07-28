@@ -101,38 +101,24 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 >
 > ![Completed](https://i.imgur.com/yWws979.jpeg)
 
+🟢 **Real screenshot (list hidden files & permissions - `ls -la`):**  
+![ls -la](https://i.imgur.com/dxcBxK0.jpeg)
 
-> 🟢 Real screenshot (https://i.imgur.com/dxcBxK0.jpeg):
+🟢 **Real screenshot (change permission - `chmod` command):**  
+![chmod](https://your-link.com/chmod.png)
 
+🟢 **Real screenshot (change owner - `chown` command):**  
+![chown](https://your-link.com/chown.png)
 
+🟢 **Real screenshot (copy & move file - `cp` and `mv`):**  
+![cp-mv](https://your-link.com/cp-mv.png)
 
+🟢 **Real screenshot (remove files - `rm` command):**  
+![rm](https://your-link.com/rm.png)
 
-> 🟢 Real screenshot (chmod applied – permission changed):
+🟢 **Real screenshot (create & remove directory - `mkdir` and `rmdir`):**  
+![mkdir-rmdir](https://your-link.com/mkdir-rmdir.png)
 
-
-
-
-
-> 🟢 Real screenshot (chown applied – owner changed):
-
-
-
-
-
-> 🟢 Real screenshot (cp & mv operations – file copied & moved):
-
-
-
-
-
-> 🟢 Real screenshot (rm & cleanup – files removed):
-
-
-
-
-
-> 🟢 Real screenshot (mkdir & rmdir – folder created & deleted):
-> 
 > 🎨 *Designed badge for visual summary:*
 >
 > ![Badge](https://i.imgur.com/8jokqta.jpeg)
