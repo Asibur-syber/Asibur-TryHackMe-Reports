@@ -51,7 +51,7 @@ A carefully planned series of 40 TryHackMe rooms designed to:
 
 | #  | Room                          | Report |
 | -- | ---------------------------  | ------ |
-| 1  | Introduction to Cyber Security | [Introduction to Cyber Securit](#) |
+| 1  | Introduction to Cyber Security | [view](Introduction to Cyber Security) |
 | 2  | What is Networking             | [View](#) |
 | 3  | Network Fundamentals           | [View](#) |
 | 4  | Learn Networking               | [View](#) |
