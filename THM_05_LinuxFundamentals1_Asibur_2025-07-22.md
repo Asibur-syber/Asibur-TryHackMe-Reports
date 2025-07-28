@@ -102,7 +102,7 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 ## 🖼 *PROOF & SCREENSHOTS*
 > Example completion badge:
 >
-> ![Completed](https://imgur.com/3M3I6FL)
+> ![Completed](https://imgur.com/a/nCgEKSS)
 
 ---
 
