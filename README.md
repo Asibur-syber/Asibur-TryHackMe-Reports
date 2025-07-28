@@ -1,7 +1,7 @@
 <!-- 🌟 Custom Banner Image with Link -->
 <p align="center">
   <a href="https://github.com/Asibur/Asibur-TryHackMe-Reports">
-    <img src="https://your-banner-url.com/banner.png" alt="Asibur-TryHackMe-Reports Banner" style="border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.2);" />
+    <img src="https://i.imgur.com/JGUIMkH.jpeg" alt="Asibur-TryHackMe-Reports Banner" style="border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.2);" />
   </a>
 </p>
 
