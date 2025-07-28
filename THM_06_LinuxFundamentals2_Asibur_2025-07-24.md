@@ -105,23 +105,23 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 ![ls -la](https://i.imgur.com/dxcBxK0.jpeg)
 
 🟢 **Real screenshot (change permission - `chmod` command):**  
-![chmod](https://your-link.com/chmod.png)
+![chmod](https://i.imgur.com/bs9BTos.jpeg)
 
 🟢 **Real screenshot (change owner - `chown` command):**  
-![chown](https://your-link.com/chown.png)
+![chown](https://i.imgur.com/cqQzgse.jpeg)
 
 🟢 **Real screenshot (copy & move file - `cp` and `mv`):**  
-![cp-mv](https://your-link.com/cp-mv.png)
+![cp-mv](https://i.imgur.com/aLIbcnR.jpeg)
 
 🟢 **Real screenshot (remove files - `rm` command):**  
-![rm](https://your-link.com/rm.png)
+![rm](https://i.imgur.com/LvgvRPH.jpeg)
 
 🟢 **Real screenshot (create & remove directory - `mkdir` and `rmdir`):**  
-![mkdir-rmdir](https://your-link.com/mkdir-rmdir.png)
+![mkdir-rmdir](https://i.imgur.com/f9eqZp0.jpeg)
 
 > 🎨 *Designed badge for visual summary:*
 >
-> ![Badge](https://i.imgur.com/8jokqta.jpeg)
+> ![Badge](https://i.imgur.com/gaNSeMg.jpeg)
 
 ---
 
