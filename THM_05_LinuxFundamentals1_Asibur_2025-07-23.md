@@ -1,21 +1,16 @@
-# 🧑‍💻 *ASIBUR RAHAMAN*  
-*Ethical Hacker | Cybersecurity Learner | Web Recon & Auth Testing Enthusiast*  
-🔗 GitHub: [github.com/Asibur-syber](https://github.com/Asibur-syber)  
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)  
-![Risk](https://img.shields.io/badge/Overall_Risk-Low-green)  
-![Last Updated](https://img.shields.io/badge/Last_Update-July_22,_2025-blue)
-
-> "Beginner to advanced TryHackMe walkthrough reports documenting my practical cybersecurity learning journey."
+# 🛡 *PENETRATION TEST REPORT*  
+## 🔐 TryHackMe Room – #05: Linux Fundamentals 1
 
 ---
 
-# 🛡 *PENETRATION TEST REPORT*  
-## 🔐 TRYHACKME ROOM — #05 Linux Fundamentals 1
-📅 Date Completed: July 21, 2025  
-📂 Category: Linux Basics  
-🎯 Focus: File system navigation, permissions, basic commands  
-🧩 Difficulty: 🟡 Beginner  
-🔗 [Room Link →](https://tryhackme.com/room/linuxfundamentals1)
+# 🧑‍💻 *ASIBUR RAHAMAN*  
+Ethical Hacker | Cybersecurity Learner | Web Recon & Auth Testing Enthusiast  
+🔗 GitHub: [github.com/Asibur-syber](https://github.com/Asibur-syber)  
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Risk](https://img.shields.io/badge/Overall_Risk-Low-green)
+![Last Updated](https://img.shields.io/badge/Last_Update-July_22,_2025-blue)
+
+> "Beginner to advanced TryHackMe walkthrough reports documenting my practical cybersecurity learning journey."
 
 ---
 
@@ -49,30 +44,30 @@
 > - File system structure & permissions
 > - Commands: ls, cd, pwd, touch, echo, etc.
 >
-> Theory & practice-based room; no vulnerability testing or exploitation.
+> This room was purely educational: no scanning, exploitation, or real vulnerabilities tested.
 
 ---
 
 ## 📜 *SCOPE & LIMITATIONS*
-- Only Linux Fundamentals 1 room.
-- No external scanning, enumeration, or exploitation.
-- Focused on educational learning & quizzes.
+- Scope limited to TryHackMe “Linux Fundamentals 1” room.
+- No external network scanning, enumeration, or exploitation performed.
+- Focused on command-line learning and quiz completion.
 
 ---
 
 ## 💡 *BUSINESS IMPACT*
-- Improves baseline Linux literacy for security teams.
-- Helps avoid configuration mistakes.
-- Supports secure system administration & compliance.
+- Improves team Linux literacy.
+- Helps reduce configuration errors.
+- Supports secure administration & compliance with baseline standards.
 
 ---
 
 ## 🔍 *METHODOLOGY*
 | Step | Goal |
 |--:|--:|
-| Study | Learn file system, permissions, shell basics |
-| Practice | Use commands in TryHackMe lab |
-| Document | Write professional report |
+| Study | Learn Linux file system & permissions basics |
+| Practice | Hands-on command execution in lab |
+| Document | Professional-level walkthrough report |
 
 Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/).
 
@@ -86,40 +81,42 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 ---
 
 ## 🔒 *INDIVIDUAL FINDINGS & RISK RATINGS*
-✅ *No vulnerabilities identified* — room focused on command-line fundamentals.
+✅ No vulnerabilities identified — the room is educational, without actual exploits.
 
 ---
 
 ## 🛠 *TOOLS, COMMANDS & PAYLOADS*
 | Tool / Command | Purpose |
 |--:|--:|
-| ls, cd, pwd, cat, echo | Navigate & read files |
-| chmod, chown | Permission management |
-| TryHackMe platform | Learning environment |
+| ls, cd, pwd, cat, echo | Navigation & viewing |
+| chmod, chown | Permission modification |
+| TryHackMe platform | Lab environment |
 
 ---
 
 ## 🖼 *PROOF & SCREENSHOTS*
-> Example completion badge:
+
+> 🟢 *Real screenshot (my task completion):*
 >
 > ![Completed](https://i.imgur.com/XqL8sfC.jpeg)
-> 
-> 🎨 Designed completion badge:
 
-![Badge](https://i.imgur.com/8jokqta.jpeg)
+> 🎨 *Designed badge for visual summary:*
+>
+> ![Badge](https://i.imgur.com/8jokqta.jpeg)
+
 ---
 
 ## ✅ *CONCLUSION*
-- Built strong foundation in Linux shell commands & permissions.
-- No scanning or exploitation performed.
-- Ready to advance to next Linux rooms.
+- Learned file system navigation & permissions fundamentals.
+- Practiced standard Linux commands.
+- Ready to advance to further Linux rooms.
 
 ---
 
 ## ⚠ *RISK MATRIX*
 | Risk | Findings |
 |--:|--:|
-| N/A | Educational; no vulnerabilities tested |
+| N/A | No vulnerabilities identified; purely educational task |
 
 ---
 
@@ -131,13 +128,13 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 ---
 
 ## 📎 *APPENDIX*
-- Personal practice notes
-- Cheat sheet of Linux commands
+- Personal notes
+- Linux command cheat sheet
 
 ---
 
 ## ✍ *SIGNATURE & CONTACT*
-*Prepared by:*  
+Prepared by:  
 *Asibur Rahaman* – Ethical Hacker | Cybersecurity Learner | Web Recon & Auth Testing Enthusiast  
 📅 Report generated on: July 22, 2025  
 🔗 GitHub: [github.com/Asibur-syber](https://github.com/Asibur-syber)  
@@ -145,3 +142,5 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 📧 Email: asib51639@gmail.com
 
 > "Security is a journey, not a destination."
+
+---
