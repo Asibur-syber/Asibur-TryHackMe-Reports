@@ -152,7 +152,7 @@ Aligned with [OWASP Testing Guide](https://owasp.org/www-project-web-security-te
 > ```
 > whoami
 > ```
-> ![Figure8](blob:https://imgur.com/37f9de5f-98ee-4ed7-a936-7c2aa6af465c)
+> ![Figure8](https://i.imgur.com/nxbUYTX.jpeg)
 
 > 🟢 **Figure 9: Showing sudo privileges**
 >
