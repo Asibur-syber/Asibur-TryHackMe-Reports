@@ -1,7 +1,7 @@
 # 🛡 Web Application Penetration Test Report  
 **Client:** TryHackMe – Burp Suite Repeater Lab (Educational)  
 **Project:** Burp Suite Repeater – HTTP Header Manipulation Test  
-**Date:** August 4, 2025  
+**Date:** August 5, 2025  
 **Version:** 1.0  
 **Prepared by:** Asibur Rahaman  
 **Title:** Ethical Hacker & Cybersecurity Specialist  
@@ -70,22 +70,33 @@ If present in a production environment, this vulnerability could:
 
 ---
 
-## 🖼 Proof & Screenshots
+## 🖼 PROOF & SCREENSHOTS
 
-**Screenshot 1 – Target Website Opened in Browser**  
-![Screenshot 1](https://i.imgur.com/rHzDLar.jpeg)
+### 📷 Screenshot Gallery
 
-**Screenshot 2 – HTTP Request Captured in Proxy**  
-![Screenshot 2](https://i.imgur.com/Lf37GO4.jpeg)
+1. Target Website Opened in Browser  
+   ![Screenshot 1 – Accessing Target IP](https://i.imgur.com/rHzDLar.jpeg)
 
-**Screenshot 3 – Request Sent to Repeater (Unmodified)**  
-![Screenshot 3](https://i.imgur.com/2ruMhe7.jpeg)
+2. HTTP Request Captured in Burp Proxy  
+   ![Screenshot 2 – Burp Proxy Request](https://i.imgur.com/Lf37GO4.jpeg)
 
-**Screenshot 4 – Header Added in Inspector**  
-![Screenshot 4](https://i.imgur.com/6sWlTR8.jpeg)
+3. Request Sent to Repeater (Unmodified)  
+   ![Screenshot 3 – Repeater Original Request](https://i.imgur.com/2ruMhe7.jpeg)
 
-**Screenshot 5 – Flag Shown in Response**  
-![Screenshot 5](https://i.imgur.com/tP244C7.jpeg)
+4. Inspector Panel Showing Added Header  
+   ![Screenshot 4 – Inspector with FlagAuthorised: True](https://i.imgur.com/6sWlTR8.jpeg)
+
+5. Flag Shown in Repeater Response  
+   ![Screenshot 5 – Flag in Response Body](https://i.imgur.com/tP244C7.jpeg)
+
+6. Response View Switched to Pretty / Hex  
+   ![Screenshot 6 – Pretty View Enabled](https://i.imgur.com/RvwwEeo.jpeg)
+
+7. Final Flag Highlighted for Submission  
+   ![Screenshot 7 – Flag Highlighted](https://i.imgur.com/Ktafuyj.jpeg)
+
+> 🎨 *Visual badge / summary:*  
+> ![Badge](https://i.imgur.com/UMZ0HRD.jpeg)
 
 ---
 
