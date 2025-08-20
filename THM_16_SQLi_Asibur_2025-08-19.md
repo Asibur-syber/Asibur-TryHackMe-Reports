@@ -126,21 +126,32 @@ Payload <script>document.cookie</script> executes in victim browsers, allowing *
 
 ---
 
-## 🖼 Proof & Screenshots
+## 🖼 Proof & Screenshots  
 
-- **SS01:** [Target Homepage](https://i.imgur.com/3MiFRZh.jpeg)  
-- **SS02:** [Login Page Baseline](https://i.imgur.com/KDt5k2u.jpeg)  
-- **SS03:** [SQLi Login Bypass](https://i.imgur.com/SkwCpoD.jpeg)  
-- **SS04:** [Burp Suite Injection Req/Res](https://i.imgur.com/02UP355.jpeg)  
+1. *Target Homepage Opened in Browser*  
+   ![Screenshot 1 – Accessing Target IP](https://i.imgur.com/3MiFRZh.jpeg)  
 
-### SS05: UNION SELECT DB Dump *(Captured using SQLMap)*
+2. *Login Page Baseline*  
+   ![Screenshot 2 – Login Page](https://i.imgur.com/KDt5k2u.jpeg)  
 
-- **SS05A:** [Initial DB Response](https://i.imgur.com/BqU5ZhZ.jpeg)  
-- **SS05B:** [Extracted Tables Overview](https://i.imgur.com/eq00qP5.jpeg)  
-- **SS05C:** [Extracted Data Sample](https://i.imgur.com/FJOuVd9.jpeg)  
+3. **SQLi Payload Injected (' OR '1'='1--) → Authentication Bypass**  
+   ![Screenshot 3 – SQLi Login Bypass](https://i.imgur.com/SkwCpoD.jpeg)  
 
-- **SS06:** [Visual Risk Matrix](https://i.imgur.com/Y6zklgC.jpeg)
-> 🎨 *Visual badge / summary:*  
+4. *Request Sent to Burp Suite Repeater (Injection Verification)*  
+   ![Screenshot 4 – Burp Repeater Request/Response](https://i.imgur.com/02UP355.jpeg)  
+
+5. *UNION SELECT Query Used to Extract Database Contents*  
+   - 5A – First DB Extraction Screenshot  
+     ![Screenshot 5A – DB Extract 1](https://i.imgur.com/BqU5ZhZ.jpeg)  
+   - 5B – Second DB Extraction Screenshot  
+     ![Screenshot 5B – DB Extract 2](https://i.imgur.com/eq00qP5.jpeg)  
+   - 5C – Third DB Extraction Screenshot  
+     ![Screenshot 5C – DB Extract 3](https://i.imgur.com/FJOuVd9.jpeg)  
+
+6. *Visual Risk Matrix Representation*  
+   ![Screenshot 6 – Risk Matrix](https://i.imgur.com/Y6zklgC.jpeg)  
+
+> 🎨 Visual badge / summary:  
 > ![Badge](https://i.imgur.com/avONRfi.jpeg)
 
 ---
