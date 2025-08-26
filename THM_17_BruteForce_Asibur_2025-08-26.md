@@ -85,9 +85,7 @@ The login endpoint failed to implement brute force protections. By using a passw
 3. Send request to **Burp Intruder** → configure payload positions for password field.  
 4. Load password list: `/home/kali/Downloads/passwords_clean.txt`.  
 5. Observe success response (different length/redirect) in Intruder results (SS04).  
-6. Validate with **Hydra**:  
-   ```bash
-   hydra -l admin -P /home/kali/Downloads/passwords_clean.txt 10.201.56.109 http-post-form "/login:username=^USER^&password=^PASS^:Invalid"
+6. Validate with **Hydra**: hydra -l admin -P /home/kali/Downloads/passwords_clean.txt 10.201.56.109 http-post-form "/login:username=^USER^&password=^PASS^:Invalid"
 7. Confirm with Patator and ZAP fuzzing module for alternative validation.
 8. Successfully logged into restricted area with discovered password.
 
