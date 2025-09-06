@@ -1,165 +1,132 @@
-<!-- 🌟 Custom Banner Image with Link -->
 <p align="center">
-  <a href="https://github.com/Asibur/Asibur-TryHackMe-Reports">
-    <img src="https://i.imgur.com/JGUIMkH.jpeg" alt="Asibur-TryHackMe-Reports Banner" style="border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.2);" />
-  </a>
+  <img src="https://i.imgur.com/yF0E4Nr.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">
 </p>
 
-<!-- 📊 Status Badges -->
-<p align="center">
-  <img src="https://img.shields.io/github/last-commit/Asibur/Asibur-TryHackMe-Reports" alt="Last Update">
-  <img src="https://img.shields.io/github/stars/Asibur/Asibur-TryHackMe-Reports" alt="Stars">
-  <img src="https://img.shields.io/github/license/Asibur/Asibur-TryHackMe-Reports" alt="License">
-</p>
+# 🛡 TryHackMe Pentest & CTF Reports  
 
-# 🛡 Asibur-TryHackMe-Reports
+*👤 Author:* Asibur Rahaman  
+*🎓 Role:* Cybersecurity Student & Aspiring Penetration Tester  
 
-40+ professional penetration testing & CTF reports based on real TryHackMe target IPs (10.10.x.x).  
-Detailed walkthroughs, screenshots, vulnerability findings & proof-of-concept (PoC).  
-By *Asibur Rahaman* — Ethical Hacker & Web Recon Specialist.
+[![GitHub stars](https://img.shields.io/github/stars/Asibur-syber/Asibur-TryHackMe-Reports?style=social)](https://github.com/Asibur-syber/Asibur-TryHackMe-Reports/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Asibur-syber/Asibur-TryHackMe-Reports?style=social)](https://github.com/Asibur-syber/Asibur-TryHackMe-Reports/network/members)
+[![Made with ❤](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)](https://github.com/Asibur-syber)
 
-> Focused on clean reporting, actionable findings & reproducible exploits.
+> 🚀 40+ professional pentest & CTF reports from TryHackMe.  
+> Featuring *real-world target IPs, detailed walkthroughs, screenshots, vulnerabilities, and remediation advice.*  
 
----
-
-## 🚀 About this Repository
-
-A carefully planned series of 40 TryHackMe rooms designed to:
-- Learn ethical hacking from scratch
-- Build professional pentest reports
-- Start freelancing within 2 months
-
-✅ Skill-based & earning-focused  
-✅ Real target IPs (10.10.x.x)  
-✅ Step-by-step enumeration & exploitation  
-✅ Markdown & PDF reports
+📌 *Goal:* Build strong cybersecurity skills → publish reports → start freelancing → reach *$1,000+ in 2 months*.  
 
 ---
 
-## 🎯 Vision & Purpose
-
-- Learn and reproduce real-world vulnerabilities
-- Create clean, professional pentest documentation
-- Help teams & clients validate findings
-- Build a portfolio to start freelancing on Fiverr, LinkedIn, Bugcrowd
-
----
-
-## 🌟 Phases & Reports
+## 📑 Table of Contents (40 Reports)
 
 ### 🟩 Phase 1: Basic Hacking Foundation (Day 1–10)
+1. [Introduction to Cyber Security](reports/THM_01_IntroToCyberSecurity.md)  
+2. [What is Networking](reports/THM_02_WhatIsNetworking.md)  
+3. [Network Fundamentals](reports/THM_03_NetworkFundamentals.md)  
+4. [Learn Networking](reports/THM_04_LearnNetworking.md)  
+5. [Linux Fundamentals 1](reports/THM_05_LinuxFundamentals1.md)  
+6. [Linux Fundamentals 2](reports/THM_06_LinuxFundamentals2.md)  
+7. [Linux Fundamentals 3](reports/THM_07_LinuxFundamentals3.md)  
+8. [Windows Fundamentals 1](reports/THM_08_WindowsFundamentals1.md)  
+9. [Windows Fundamentals 2](reports/THM_09_WindowsFundamentals2.md)  
+10. [Windows Fundamentals 3](reports/THM_10_WindowsFundamentals3.md)  
 
-| #  | Room                          | Report |
-| -- | ---------------------------  | ------ |
-| 1  | Introduction to Cyber Security | [view](#) |
-| 2  | What is Networking             | [View](#) |
-| 3  | Network Fundamentals           | [View](#) |
-| 4  | Learn Networking               | [View](#) |
-| 5  | Linux Fundamentals 1           | [View](#) |
-| 6  | Linux Fundamentals 2           | [View](#) |
-| 7  | Linux Fundamentals 3           | [View](#) |
-| 8  | Windows Fundamentals 1         | [View](#) |
-| 9  | Windows Fundamentals 2         | [View](#) |
-| 10 | Windows Fundamentals 3         | [View](#) |
-
-*Skills:* IP, Ports, Linux, OS concepts  
-*Sample Report:* Linux Commands List + Network Diagram
+🎯 *Skills:* IP addressing, Ports, Linux/Windows basics  
+📝 *Deliverables:* Linux Cheatsheet + Network Diagram  
 
 ---
 
 ### 🟨 Phase 2: Web Hacking + Burp Suite (Day 11–20)
+11. [What is the Web](reports/THM_11_WhatIsWeb.md)  
+12. [How Websites Work](reports/THM_12_HowWebsitesWork.md)  
+13. [Burp Suite: Repeater](reports/THM_13_BurpRepeater.md)  
+14. [Burp Suite: Intruder](reports/THM_14_BurpIntruder.md)  
+15. [Intro to Web Hacking](reports/THM_15_IntroWebHacking.md)  
+16. [Injection (SQLi/XSS)](reports/THM_16_Injection.md)  
+17. [Brute Force](reports/THM_17_BruteForce.md)  
+18. [Broken Authentication](reports/THM_18_BrokenAuth.md)  
+19. [OWASP Top 10](reports/THM_19_OWASP_Top10.md)  
+20. [Web Fundamentals](reports/THM_20_WebFundamentals.md)  
 
-| #  | Room                       | Report |
-| -- | ------------------------  | ------ |
-| 11 | What is the Web           | [View](#) |
-| 12 | How Websites Work        | [View](#) |
-| 13 | Burp Suite: Repeater     | [View](#) |
-| 14 | Burp Suite: Intruder     | [View](#) |
-| 15 | Intro to Web Hacking     | [View](#) |
-| 16 | Injection (SQLi/XSS)     | [View](#) |
-| 17 | Brute Force              | [View](#) |
-| 18 | Broken Authentication    | [View](#) |
-| 19 | OWASP Top 10             | [View](#) |
-| 20 | Web Fundamentals         | [View](#) |
-
-*Skills:* SQLi, XSS, CSRF, Burp Suite testing  
-*Sample Report:* SQLi/XSS Walkthrough + GitHub Web Hacks Repo
+🎯 *Skills:* SQLi, XSS, CSRF, Authentication flaws, Burp Suite  
+📝 *Deliverables:* Web Vuln Reports + GitHub Repo  
 
 ---
 
 ### 🟦 Phase 3: Real CTF + Practical Hacking (Day 21–30)
+21. [Vulnversity](reports/THM_21_Vulnversity.md)  
+22. [Pickle Rick](reports/THM_22_PickleRick.md)  
+23. [Blue](reports/THM_23_Blue.md)  
+24. [Simple CTF](reports/THM_24_SimpleCTF.md)  
+25. [Bounty Hacker](reports/THM_25_BountyHacker.md)  
+26. [Daily Bugle](reports/THM_26_DailyBugle.md)  
+27. [Internal](reports/THM_27_Internal.md)  
+28. [Steel Mountain](reports/THM_28_SteelMountain.md)  
+29. [Ignite](reports/THM_29_Ignite.md)  
+30. [Relevant](reports/THM_30_Relevant.md)  
 
-| #  | Room            | Report |
-| -- | -------------- | ------ |
-| 21 | Vulnversity ✅   | [View](#) |
-| 22 | Pickle Rick    | [View](#) |
-| 23 | Blue           | [View](#) |
-| 24 | Simple CTF     | [View](#) |
-| 25 | Bounty Hacker  | [View](#) |
-| 26 | Daily Bugle    | [View](#) |
-| 27 | Internal       | [View](#) |
-| 28 | Steel Mountain | [View](#) |
-| 29 | Ignite         | [View](#) |
-| 30 | Relevant       | [View](#) |
-
-*Skills:* Enumeration, exploitation, capturing flags  
-*Sample Report:* Vulnversity + Daily Bugle → Full PDF report
+🎯 *Skills:* Enumeration, Exploitation, Post-Exploitation  
+📝 *Deliverables:* Vulnversity + Daily Bugle PDF Reports  
 
 ---
 
 ### 🟪 Phase 4: Tools + Privilege Escalation + Reporting (Day 31–40)
+31. [Nmap](reports/THM_31_Nmap.md)  
+32. [Gobuster](reports/THM_32_Gobuster.md)  
+33. [Nikto](reports/THM_33_Nikto.md)  
+34. [Subdomain Enumeration](reports/THM_34_SubdomainEnum.md)  
+35. [Google Dorking](reports/THM_35_GoogleDorking.md)  
+36. [File Inclusion](reports/THM_36_FileInclusion.md)  
+37. [Linux Privilege Escalation](reports/THM_37_LinuxPrivEsc.md)  
+38. [Windows Privilege Escalation](reports/THM_38_WindowsPrivEsc.md)  
+39. [Post Exploitation Basics](reports/THM_39_PostExploitation.md)  
+40. [Report Writing Room](reports/THM_40_ReportWriting.md)  
 
-| #  | Room                          | Report |
-| -- | ---------------------------  | ------ |
-| 31 | Nmap                         | [View](#) |
-| 32 | Gobuster                     | [View](#) |
-| 33 | Nikto                        | [View](#) |
-| 34 | Subdomain Enumeration        | [View](#) |
-| 35 | Google Dorking               | [View](#) |
-| 36 | File Inclusion               | [View](#) |
-| 37 | Linux Privilege Escalation   | [View](#) |
-| 38 | Windows Privilege Escalation | [View](#) |
-| 39 | Post Exploitation Basics     | [View](#) |
-| 40 | Report Writing Room          | [View](#) |
-
-*Skills:* Reconnaissance, LFI, RFI, privilege escalation  
-*Sample Report:* PrivEsc Walkthrough + Pentest PDF Template
+🎯 *Skills:* Recon, LFI, PrivEsc, Report Writing  
+📝 *Deliverables:* PrivEsc Walkthroughs + PDF Template  
 
 ---
 
-## 🧭 Daily Routine (2-Month Plan)
+## 🧭 Study & Work Routine
 
-| Task                   | Time         | Goal                            |
-|----------------------- | ------------ | ------------------------------- |
-| TryHackMe (1 room/day) | 2–3 hours    | Complete 40 rooms in 40 days    |
-| Write reports         | 1 hour       | PDF every 5 rooms               |
-| Update GitHub         | 30 minutes   | Twice a week                    |
-| Create Fiverr gigs    | Weekly       | Start freelancing income        |
-
----
-
-## 💰 Earning Timeline
-
-| Time       | Method                        | Expected Income |
-|----------- | ----------------------------- | --------------: |
-| Week 3     | GitHub + Fiverr live profile  | $10 – $50       |
-| Week 4     | Sell Vulnversity report       | $20 – $100      |
-| Month 2    | Fiverr + Bugcrowd active      | $50 – $500      |
-| After 2 months | Consistent freelancing    | ৳10,000 – ৳100,000+ |
+| Task                | Time/Day   | Goal |
+|----------------------|------------|------|
+| TryHackMe Lab        | 2–3 hours  | 40 rooms in 40 days |
+| Report Writing       | 1 hour     | 1 PDF per 5 rooms |
+| GitHub Update        | 30 mins    | Twice per week |
+| Fiverr/Gig Building  | 1 day/week | Start earning |
 
 ---
 
-## ✒ About Me
+## 💰 Freelance Roadmap
 
-*Asibur Rahaman* — Ethical Hacker, Web Recon Specialist & CTF Player.  
-Passionate about reproducible exploits, clean documentation & real-world impact.
-
-⚙ Tools: Linux, Burp Suite, Nmap, Gobuster, manual recon  
-⭐ Follow for practical reports & updates!  
-📧 Connect: [Fiverr](#) / [LinkedIn](#)
+| Timeline   | Activity                  | Expected Earnings |
+|------------|---------------------------|------------------|
+| Week 3     | GitHub + Fiverr Live      | $10 – $50 |
+| Week 4     | Fiverr (Vulnversity Report) | $20 – $100 |
+| Month 2    | Fiverr + Bugcrowd Active  | $50 – $500 |
+| End of Month 2 | Consistent Income      | $200 – $1,000+ |
 
 ---
 
-## 📄 License
+## 🎯 Skills Gained
+✔ Networking Fundamentals  
+✔ Linux & Windows Basics  
+✔ Web Application Security (SQLi, XSS, CSRF, OWASP Top 10)  
+✔ Enumeration & Exploitation (CTFs & Labs)  
+✔ Privilege Escalation (Linux & Windows)  
+✔ Professional Report Writing  
 
-This project is licensed under the MIT License – see the LICENSE file for details.
+---
+
+## 📬 Contact Me
+- *GitHub:* [Asibur-syber](https://github.com/Asibur-syber)  
+- *Portfolio:* (This Repository)  
+- *Fiverr:* [Visit my Fiverr Profile](https://www.fiverr.com/)  
+- *Email:* [asib51639@gmail.com](mailto:asib51639@gmail.com)  
+- *LinkedIn:* [Connect on LinkedIn](https://www.linkedin.com/)  
+
+---
+
+✨ This repository is designed as a **premium cybersecurity portfolio* — proof of practical skills, client-ready reporting, and freelancing potential.*
