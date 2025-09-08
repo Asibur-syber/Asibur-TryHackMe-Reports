@@ -45,7 +45,7 @@
 15. [Intro to Web Hacking](reports/THM_15_IntroWebHacking.md)  
 16. [Injection (SQLi/XSS)](reports/THM_16_Injection.md)  
 17. [Brute Force](reports/THM_17_BruteForce.md)  
-18. [Broken Authentication](reports/THM_18_BrokenAuth.md)  
+18. [Broken Authentication](reports/THM_18_BrokenAuthentication_Asibur_2025-08-31.md)  
 19. [OWASP Top 10](reports/THM_19_OWASP_Top10.md)  
 20. [Web Fundamentals](reports/THM_20_WebFundamentals.md)  
 
