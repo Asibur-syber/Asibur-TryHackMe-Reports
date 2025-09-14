@@ -71,9 +71,10 @@ A thorough penetration test was conducted on the target application (`10.201.90.
 Reconnaissance → Input Testing → Exploitation → Documentation → Remediation Recommendations  
 
 **Frameworks & Standards:**  
-- OWASP Top 10 – A07: Identification & Authentication Failures  
-- CWE-287 – Improper Authentication  
-- NIST SP 800-115 – Technical Guide to Security Testing  
+- [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)  
+- [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
+- [NIST SP 800-115 – Technical Guide to Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+```0
 
 ---
 
@@ -88,8 +89,10 @@ Reconnaissance → Input Testing → Exploitation → Documentation → Remediat
 
 ## 🔍 Detailed Vulnerability Analysis
 **Title:** Broken Authentication / Re-Registration Logic Flaw  
-**CWE:** 287 – Improper Authentication  
-**CVSS:** 6.5 (Medium)  
+**CWE:** [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
+**CVSS v3.1 Vector:** `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N`  
+**Score:** 6.5 (Medium)  
+```0
 
 **Attack Scenario:**  
 - Register `" darren"` → duplicate validation bypassed  
@@ -205,11 +208,15 @@ Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ## 📚 References
 
-- 🔗 [](https://owasp.org/www-project-top-ten/)
-- 🔗 [](https://cwe.mitre.org/data/definitions/287.html)
-- 🔗 [](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
-- 🔗 [](https://tryhackme.com/room/brokenauth)
-- 
+- [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)
+- [CWE-307: Improper Restriction of Excessive Authentication Attempts](https://cwe.mitre.org/data/definitions/307.html)
+- [Hydra GitHub Repository](https://github.com/vanhauser-thc/thc-hydra)
+- [Patator GitHub Repository](https://github.com/lanjelot/patator)
+- [OWASP ZAP Project](https://www.zaproxy.org/)
+- [NIST SP 800-115 – Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+- [CVSS v3.1 Calculator](https://www.first.org/cvss/calculator/3.1)
+- [TryHackMe – Broken Authentication](https://tryhackme.com/room/brokenauth)
+
 ---
 
 ## 📎 Appendix
