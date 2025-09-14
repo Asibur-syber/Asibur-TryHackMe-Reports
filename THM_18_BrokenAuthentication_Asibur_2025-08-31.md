@@ -35,16 +35,16 @@ Contact: 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn
 
 ## ✨ Executive Summary
 
-A thorough penetration test was conducted on the target application (`10.201.90.135:8888`).  
+A thorough penetration test was conducted on the target application (10.201.90.135:8888).  
 
-**Key Findings:**  
-- **Vulnerability:** Broken Authentication / Re-Registration Logic Flaw  
-- **Severity:** Medium – CVSS 6.5 (CWE-287)  
-- **Impact:** An attacker can bypass duplicate username checks using leading spaces (e.g., `" darren"`), allowing unauthorized account access.  
+*Key Findings:*  
+- *Vulnerability:* Broken Authentication / Re-Registration Logic Flaw  
+- *Severity:* Medium – CVSS 6.5 (CWE-287)  
+- *Impact:* An attacker can bypass duplicate username checks using leading spaces (e.g., " darren"), allowing unauthorized account access.  
 
-**Strategic Summary:**  
+*Strategic Summary:*  
 - Indicates critical input validation flaws in authentication workflow  
-- Poses **account takeover risk**, exposure of sensitive information  
+- Poses *account takeover risk*, exposure of sensitive information  
 - Immediate remediation recommended for production or real-world deployment  
 
 ---
@@ -60,21 +60,21 @@ A thorough penetration test was conducted on the target application (`10.201.90.
 ---
 
 ## 📜 Scope & Engagement Details
-**In-Scope:**  
-- IP: `10.201.90.135`  
-- Endpoints: `/register`, `/login`  
+*In-Scope:*  
+- IP: 10.201.90.135  
+- Endpoints: /register, /login  
 
-**Out-of-Scope:**  
+*Out-of-Scope:*  
 - SQL Injection, XSS, DoS  
 
-**Methodology:**  
+*Methodology:*  
 Reconnaissance → Input Testing → Exploitation → Documentation → Remediation Recommendations  
 
-**Frameworks & Standards:**  
+*Frameworks & Standards:*  
 - [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)  
 - [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
 - [NIST SP 800-115 – Technical Guide to Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-```0
+0
 
 ---
 
@@ -89,27 +89,29 @@ Reconnaissance → Input Testing → Exploitation → Documentation → Remediat
 
 ## 🔍 Detailed Vulnerability Analysis
 **Title:** Broken Authentication / Re-Registration Logic Flaw  
-**CWE:** 287 – Improper Authentication  
-**CVSS:** 6.5 (Medium)  
+**CWE:** [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
+**CVSS v3.1 Vector:** `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N`  
+**Score:** 6.5 (Medium)  
+0
 
-**Attack Scenario:**  
-- Register `" darren"` → duplicate validation bypassed  
+*Attack Scenario:*  
+- Register " darren" → duplicate validation bypassed  
 - Unauthorized session creation → account takeover  
 
-**Steps to Reproduce:**  
-1. Access `http://10.201.90.135:8888/register`  
-2. Attempt `darren` → rejected  
-3. Register `" darren"` → account created  
+*Steps to Reproduce:*  
+1. Access http://10.201.90.135:8888/register  
+2. Attempt darren → rejected  
+3. Register " darren" → account created  
 4. Dashboard shows Darren’s account → exploit verified  
-5. Repeat with `" arthur"`  
+5. Repeat with " arthur"  
 
 ---
 
 ## 💡 Business Impact
-- 🔓 **Account Takeover**  
-- ⚠ **Sensitive Data Exposure**  
-- 💸 **Reputation & Financial Risk**  
-- 🛑 **Compliance Violation (OWASP/NIST)**  
+- 🔓 *Account Takeover*  
+- ⚠ *Sensitive Data Exposure*  
+- 💸 *Reputation & Financial Risk*  
+- 🛑 *Compliance Violation (OWASP/NIST)*  
 
 ---
 
@@ -206,18 +208,26 @@ Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ## 📚 References
 
+- [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)
+- [CWE-307: Improper Restriction of Excessive Authentication Attempts](https://cwe.mitre.org/data/definitions/307.html)
+- [Hydra GitHub Repository](https://github.com/vanhauser-thc/thc-hydra)
+- [Patator GitHub Repository](https://github.com/lanjelot/patator)
+- [OWASP ZAP Project](https://www.zaproxy.org/)
+- [NIST SP 800-115 – Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+- [CVSS v3.1 Calculator](https://www.first.org/cvss/calculator/3.1)
+- [TryHackMe – Broken Authentication](https://tryhackme.com/room/brokenauth)
 
 ---
 
 ## 📎 Appendix
 
-**Tools & Versions:**
+*Tools & Versions:*
 
 - Burp Suite 2025.8
 - Firefox 129.0
 - Kali Linux Rolling 2025
 
-**Notes:**
+*Notes:*
 
 - Controlled lab environment
 - No destructive payloads used
@@ -230,11 +240,11 @@ Hello 👋,
 
 This Enterprise Premium Report is crafted for:
 
-- **Freelancer / Fiverr Clients:** Polished, visually professional, ready for submission
-- **Bug Bounty / Security Teams:** Complete CVSS/CWE mapping, PoC, raw HTTP requests
+- *Freelancer / Fiverr Clients:* Polished, visually professional, ready for submission
+- *Bug Bounty / Security Teams:* Complete CVSS/CWE mapping, PoC, raw HTTP requests
 
 > Ensures professional presentation across GitHub, Fiverr, Bugcrowd, HackerOne
 
-**Prepared by:**  
+*Prepared by:*  
 Asibur Rahaman  
 🛡 Ethical Hacker & Cybersecurity Specialist
