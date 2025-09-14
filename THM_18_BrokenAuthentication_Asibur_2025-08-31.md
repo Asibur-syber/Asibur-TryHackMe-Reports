@@ -89,10 +89,8 @@ Reconnaissance → Input Testing → Exploitation → Documentation → Remediat
 
 ## 🔍 Detailed Vulnerability Analysis
 **Title:** Broken Authentication / Re-Registration Logic Flaw  
-**CWE:** [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
-**CVSS v3.1 Vector:** `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N`  
-**Score:** 6.5 (Medium)  
-```0
+**CWE:** 287 – Improper Authentication  
+**CVSS:** 6.5 (Medium)  
 
 **Attack Scenario:**  
 - Register `" darren"` → duplicate validation bypassed  
