@@ -205,18 +205,11 @@ Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ## 📚 References
 
-1. **OWASP Top 10 – A07: Identification & Authentication Failures**  
-   [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
-
-2. **CWE-287 – Improper Authentication**  
-   [https://cwe.mitre.org/data/definitions/287.html](https://cwe.mitre.org/data/definitions/287.html)
-
-3. **NIST SP 800-115 – Technical Guide to Information Security Testing and Assessment**  
-   [https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
-
-4. **TryHackMe – Broken Authentication Room**  
-   [https://tryhackme.com/room/brokenauth](https://tryhackme.com/room/brokenauth)
-   
+- 🔗 [](https://owasp.org/www-project-top-ten/)
+- 🔗 [](https://cwe.mitre.org/data/definitions/287.html)
+- 🔗 [](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
+- 🔗 [](https://tryhackme.com/room/brokenauth)
+- 
 ---
 
 ## 📎 Appendix
