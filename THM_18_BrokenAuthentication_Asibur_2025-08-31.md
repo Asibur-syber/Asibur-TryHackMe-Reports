@@ -206,14 +206,6 @@ Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ## 📚 References
 
-- [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)
-- [CWE-307: Improper Restriction of Excessive Authentication Attempts](https://cwe.mitre.org/data/definitions/307.html)
-- [Hydra GitHub Repository](https://github.com/vanhauser-thc/thc-hydra)
-- [Patator GitHub Repository](https://github.com/lanjelot/patator)
-- [OWASP ZAP Project](https://www.zaproxy.org/)
-- [NIST SP 800-115 – Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-- [CVSS v3.1 Calculator](https://www.first.org/cvss/calculator/3.1)
-- [TryHackMe – Broken Authentication](https://tryhackme.com/room/brokenauth)
 
 ---
 
