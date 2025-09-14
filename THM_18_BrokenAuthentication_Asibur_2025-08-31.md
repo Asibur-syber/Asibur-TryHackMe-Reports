@@ -4,13 +4,13 @@
   <img src="https://i.imgur.com/do3UY0q.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">
 </p>  
 
-*Client:* TryHackMe – Room #18 (Broken Authentication) – Educational  
-*Project:* Authentication & Logic Flaw Vulnerability Assessment  
-*Date:* August 31, 2025  
-*Version:* Final Premium Edition  
-*Prepared by:* Asibur Rahaman  
-*Title:* Ethical Hacker & Cybersecurity Specialist  
-*Contact:* 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn  
+Client: TryHackMe – Room #18 (Broken Authentication) – Educational  
+Project: Authentication & Logic Flaw Vulnerability Assessment  
+Date: August 31, 2025  
+Version: Final Premium Edition  
+Prepared by: Asibur Rahaman  
+Title: Ethical Hacker & Cybersecurity Specialist  
+Contact: 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn  
 
 ---
 
@@ -34,13 +34,13 @@
 ---
 
 ## ✨ Executive Summary
-A penetration test on the target application (10.201.90.135:8888) identified a *Broken Authentication vulnerability* due to a *re-registration logic flaw*.  
+A penetration test on the target application (10.201.90.135:8888) identified a Broken Authentication vulnerability due to a re-registration logic flaw.  
 
-- 🚨 *Severity:* Medium (CVSS 6.5 – CWE-287)  
-- *CVSS Vector:* AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
+- 🚨 Severity: Medium (CVSS 6.5 – CWE-287)  
+- CVSS Vector: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
 - Attackers can bypass duplicate username validation by adding leading spaces (e.g., " darren") and gain unauthorized access.  
 
-This weakness indicates *improper input sanitization* in authentication workflows, leading to *account takeover risk*.  
+This weakness indicates improper input sanitization in authentication workflows, leading to account takeover risk.  
 
 ---
 
@@ -55,19 +55,19 @@ This weakness indicates *improper input sanitization* in authentication workflow
 ---
 
 ## 📜 Scope & Engagement Details
-*In-Scope:*  
+In-Scope:  
 - IP: 10.201.90.135  
 - Endpoints: /register, /login  
 
-*Out-of-Scope:*  
+Out-of-Scope:  
 - SQL Injection  
 - Cross-Site Scripting (XSS)  
 - Denial of Service (DoS)  
 
-*Methodology:*  
+Methodology:  
 Reconnaissance → Registration Input Testing → Exploitation → Documentation  
 
-*Frameworks Referenced:*  
+Frameworks Referenced:  
 - OWASP Top 10 – A07: Identification & Authentication Failures  
 - NIST SP 800-115  
 
@@ -81,17 +81,17 @@ Reconnaissance → Registration Input Testing → Exploitation → Documentation
 ---
 
 ## 🔍 Detailed Vulnerability Analysis
-*Vulnerability:* Broken Authentication / Re-Registration Logic Flaw  
-*CWE ID:* 287 – Improper Authentication  
-*CVSS:* 6.5 (Medium)  
-*CVSS Vector:* AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
+Vulnerability: Broken Authentication / Re-Registration Logic Flaw  
+CWE ID: 287 – Improper Authentication  
+CVSS: 6.5 (Medium)  
+CVSS Vector: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
 
-*Attack Scenario:*  
+Attack Scenario:  
 - Malicious user registers " darren" (leading space).  
 - Duplicate check bypassed → session created.  
-- Unauthorized access to *Darren’s account* (flag captured).  
+- Unauthorized access to Darren’s account (flag captured).  
 
-*Steps to Reproduce:*  
+Steps to Reproduce:  
 1. Navigate to http://10.201.90.135:8888/register  
 2. Attempt to register darren → error: user exists  
 3. Register " darren" → account successfully created  
@@ -101,18 +101,18 @@ Reconnaissance → Registration Input Testing → Exploitation → Documentation
 ---
 
 ## 💡 Business Impact
-- 🔓 *Account Takeover* – Unauthorized access to existing user accounts  
-- ⚠ *Data Exposure* – Sensitive information/flags leaked  
-- 💸 *Financial & Reputational Damage* – Loss of customer trust  
-- 🛑 *Compliance Risk* – OWASP/NIST standards violated  
+- 🔓 Account Takeover – Unauthorized access to existing user accounts  
+- ⚠ Data Exposure – Sensitive information/flags leaked  
+- 💸 Financial & Reputational Damage – Loss of customer trust  
+- 🛑 Compliance Risk – OWASP/NIST standards violated  
 
 ---
 
 ## 🧾 Technical Evidence
-*Burp Suite – Intercepted Request*  
+Burp Suite – Intercepted Request  
 
-📤 *HTTP Request:*  
-```http
+📤 HTTP Request:  
+http
 POST /register HTTP/1.1
 Host: 10.201.90.135:8888
 Content-Type: application/x-www-form-urlencoded
@@ -120,9 +120,10 @@ Content-Length: 32
 
 username=%20darren&password=test123
 
+
 ### Server Response
 
-⚠ *Impact:* Session cookie grants unauthorized access to Darren’s account.
+⚠ Impact: Session cookie grants unauthorized access to Darren’s account.
 
 ---
 
@@ -139,21 +140,20 @@ username=%20darren&password=test123
 
 ## 🖼 Proof & Screenshots
 
-1. *Login Page – Initial Access*  
+1. Login Page – Initial Access  
    ![SS01 – Login Page](https://i.imgur.com/cOETJaN.jpeg)  
 
-2. *Re-Registration Attempt with Leading Space*  
+2. Re-Registration Attempt with Leading Space  
    ![SS02 – Re-Registration Attempt](https://i.imgur.com/OP9UwSN.jpeg)  
 
-3. *Burp Suite Intercept – Request Captured*  
+3. Burp Suite Intercept – Request Captured  
    ![SS03 – Burp Suite Intercept](https://i.imgur.com/Mbv3j8h.jpeg)  
 
-4. *Exploit Outcome / Attempt Proof*  
+4. Exploit Outcome / Attempt Proof  
    ![SS04 – Exploit Outcome](https://i.imgur.com/mW0tASV.jpeg)
 
 > 🎨 Visual badge / summary:  
 > ![Badge](https://i.imgur.com/B5Nkey5.jpeg)
-
 
 (Screenshots to be attached in final version before GitHub/Fiverr upload)
 
@@ -161,17 +161,17 @@ username=%20darren&password=test123
 
 ## 🩹 Remediation Roadmap
 
-*Authentication Fixes:*
+Authentication Fixes:
 - Normalize usernames (trim whitespace, enforce lowercase)  
 - Enforce strict uniqueness checks at registration  
 - Isolate sessions per account securely  
 
-*Technical Enhancements:*
+Technical Enhancements:
 - Implement email verification  
 - Apply rate-limiting on registration attempts  
 - Regular audit of user accounts  
 
-*Governance:*
+Governance:
 - Schedule periodic penetration testing  
 - Train developers on secure authentication  
 - Adopt OWASP-compliant secure coding practices  
@@ -195,7 +195,7 @@ username=%20darren&password=test123
 | Medium              | 🟨  | 🟧     | 🟥   |
 | High                | 🟧  | 🟥     | 🟥   |
 
-*Overall Risk: 🟧 Medium → Immediate fix recommended.*
+Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ---
 
@@ -210,12 +210,12 @@ username=%20darren&password=test123
 
 ## 📎 Appendix
 
-*Tools & Versions:*
+Tools & Versions:
 - Burp Suite Community 2025.8  
 - Firefox 129.0  
 - Kali Linux Rolling 2025  
 
-*Notes:*
+Notes:
 - Performed in controlled educational lab  
 - No destructive payloads used  
 
@@ -225,13 +225,13 @@ username=%20darren&password=test123
 
 Hello 👋,  
 
-This *Premium Report* is crafted to serve both audiences:  
+This Premium Report is crafted to serve both audiences:  
 
-📌 *Freelancer/Fiverr Clients* → Clean, polished, easy-to-read, visual-ready.  
-📌 *Bug Bounty / Security Teams* → CVSS/CWE mapping, HTTP request/response, technical PoC.  
+📌 Freelancer/Fiverr Clients → Clean, polished, easy-to-read, visual-ready.  
+📌 Bug Bounty / Security Teams → CVSS/CWE mapping, HTTP request/response, technical PoC.  
 
-It ensures you present yourself as a *premium cybersecurity professional* across all platforms (GitHub, Fiverr, Bugcrowd, HackerOne).  
+It ensures you present yourself as a premium cybersecurity professional across all platforms (GitHub, Fiverr, Bugcrowd, HackerOne).  
 
 Best regards,  
-*Asibur Rahaman*  
+Asibur Rahaman  
 🛡 Ethical Hacker & Cybersecurity Specialist
