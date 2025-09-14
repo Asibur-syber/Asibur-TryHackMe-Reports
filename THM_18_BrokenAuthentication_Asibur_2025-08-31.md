@@ -34,42 +34,46 @@ Contact: 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn
 ---
 
 ## ✨ Executive Summary
-A penetration test on the target application (10.201.90.135:8888) identified a Broken Authentication vulnerability due to a re-registration logic flaw.  
 
-- 🚨 Severity: Medium (CVSS 6.5 – CWE-287)  
-- CVSS Vector: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
-- Attackers can bypass duplicate username validation by adding leading spaces (e.g., " darren") and gain unauthorized access.  
+A thorough penetration test was conducted on the target application (`10.201.90.135:8888`).  
 
-This weakness indicates improper input sanitization in authentication workflows, leading to account takeover risk.  
+**Key Findings:**  
+- **Vulnerability:** Broken Authentication / Re-Registration Logic Flaw  
+- **Severity:** Medium – CVSS 6.5 (CWE-287)  
+- **Impact:** An attacker can bypass duplicate username checks using leading spaces (e.g., `" darren"`), allowing unauthorized account access.  
+
+**Strategic Summary:**  
+- Indicates critical input validation flaws in authentication workflow  
+- Poses **account takeover risk**, exposure of sensitive information  
+- Immediate remediation recommended for production or real-world deployment  
 
 ---
 
 ## 📅 Assessment Timeline
-| Activity                | Date        | Notes                         |
-|--------------------------|------------|-------------------------------|
-| Project Kickoff          | Aug 28, 2025 | Scope confirmed with client   |
-| Recon & Input Testing    | Aug 29, 2025 | Registration logic reviewed   |
-| Vulnerability Identified | Aug 30, 2025 | Broken Authentication flaw found |
-| Report Preparation       | Aug 31, 2025 | Final Premium Edition drafted |
+| Phase | Date | Activity | Outcome |
+|-------|------|----------|---------|
+| Initiation | Aug 28, 2025 | Project Kickoff & Scope Finalization | Engagement defined |
+| Recon | Aug 29, 2025 | Registration Workflow Testing | Input validation analyzed |
+| Exploitation | Aug 30, 2025 | Vulnerability Identified | Broken Authentication confirmed |
+| Reporting | Aug 31, 2025 | Markdown + PDF Draft | Premium Enterprise Report completed |
 
 ---
 
 ## 📜 Scope & Engagement Details
-In-Scope:  
-- IP: 10.201.90.135  
-- Endpoints: /register, /login  
+**In-Scope:**  
+- IP: `10.201.90.135`  
+- Endpoints: `/register`, `/login`  
 
-Out-of-Scope:  
-- SQL Injection  
-- Cross-Site Scripting (XSS)  
-- Denial of Service (DoS)  
+**Out-of-Scope:**  
+- SQL Injection, XSS, DoS  
 
-Methodology:  
-Reconnaissance → Registration Input Testing → Exploitation → Documentation  
+**Methodology:**  
+Reconnaissance → Input Testing → Exploitation → Documentation → Remediation Recommendations  
 
-Frameworks Referenced:  
+**Frameworks & Standards:**  
 - OWASP Top 10 – A07: Identification & Authentication Failures  
-- NIST SP 800-115  
+- CWE-287 – Improper Authentication  
+- NIST SP 800-115 – Technical Guide to Security Testing  
 
 ---
 
@@ -78,33 +82,33 @@ Frameworks Referenced:
 |----|---------------|------|------|-----|--------|----------|
 | 01 | Broken Authentication / Re-Registration Logic Flaw | 6.5 | 🟨 Medium | CWE-287 | Confirmed | SS01–SS04 |
 
+> **Professional Highlight:** Findings prioritized by CVSS + business impact
+
 ---
 
 ## 🔍 Detailed Vulnerability Analysis
-Vulnerability: Broken Authentication / Re-Registration Logic Flaw  
-CWE ID: 287 – Improper Authentication  
-CVSS: 6.5 (Medium)  
-CVSS Vector: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N  
+**Title:** Broken Authentication / Re-Registration Logic Flaw  
+**CWE:** 287 – Improper Authentication  
+**CVSS:** 6.5 (Medium)  
 
-Attack Scenario:  
-- Malicious user registers " darren" (leading space).  
-- Duplicate check bypassed → session created.  
-- Unauthorized access to Darren’s account (flag captured).  
+**Attack Scenario:**  
+- Register `" darren"` → duplicate validation bypassed  
+- Unauthorized session creation → account takeover  
 
-Steps to Reproduce:  
-1. Navigate to http://10.201.90.135:8888/register  
-2. Attempt to register darren → error: user exists  
-3. Register " darren" → account successfully created  
-4. Access dashboard → Darren’s account compromised  
-5. Repeat with " arthur"  
+**Steps to Reproduce:**  
+1. Access `http://10.201.90.135:8888/register`  
+2. Attempt `darren` → rejected  
+3. Register `" darren"` → account created  
+4. Dashboard shows Darren’s account → exploit verified  
+5. Repeat with `" arthur"`  
 
 ---
 
 ## 💡 Business Impact
-- 🔓 Account Takeover – Unauthorized access to existing user accounts  
-- ⚠ Data Exposure – Sensitive information/flags leaked  
-- 💸 Financial & Reputational Damage – Loss of customer trust  
-- 🛑 Compliance Risk – OWASP/NIST standards violated  
+- 🔓 **Account Takeover**  
+- ⚠ **Sensitive Data Exposure**  
+- 💸 **Reputation & Financial Risk**  
+- 🛑 **Compliance Violation (OWASP/NIST)**  
 
 ---
 
@@ -123,18 +127,19 @@ username=%20darren&password=test123
 
 ### Server Response
 
-⚠ Impact: Session cookie grants unauthorized access to Darren’s account.
+⚠ Session cookie allows unauthorized access
 
 ---
 
 ## 🛠 Tools & Methodology
 
-| Tool / Method     | Purpose                     |
-|-------------------|-----------------------------|
-| Web Browser       | Manual registration exploit |
-| Burp Suite        | HTTP interception & replay  |
-| Screenshot Utility| Visual documentation        |
-| OWASP/NIST Guides | Reference for remediation   |
+| Tool                   | Version  | Purpose                             |
+|------------------------|----------|-------------------------------------|
+| Burp Suite Community   | 2025.8   | Intercept, replay, analyze requests|
+| Firefox                | 129.0    | Manual testing, PoC validation      |
+| Screenshot Utility     | N/A      | Evidence capture                    |
+| Kali Linux Rolling     | 2025     | Testing environment                 |
+| OWASP / NIST Guides    | Latest   | Reference & remediation guidance    |
 
 ---
 
@@ -161,29 +166,28 @@ username=%20darren&password=test123
 
 ## 🩹 Remediation Roadmap
 
-Authentication Fixes:
-- Normalize usernames (trim whitespace, enforce lowercase)  
-- Enforce strict uniqueness checks at registration  
-- Isolate sessions per account securely  
+### Authentication Enhancements:
+- Normalize usernames (trim + lowercase)
+- Enforce strict uniqueness checks
+- Isolate sessions securely
 
-Technical Enhancements:
-- Implement email verification  
-- Apply rate-limiting on registration attempts  
-- Regular audit of user accounts  
+### Technical Measures:
+- Email verification
+- Rate-limiting registration attempts
+- Periodic pentesting & audits
 
-Governance:
-- Schedule periodic penetration testing  
-- Train developers on secure authentication  
-- Adopt OWASP-compliant secure coding practices  
+### Governance & Training:
+- Developer training on secure coding
+- OWASP-compliant authentication workflow
 
 ---
 
 ## 🔍 Verification Steps
 
-1. Attempt to register " darren" → must be rejected  
-2. Ensure duplicate checks are case-insensitive & trimmed  
-3. Validate original users (e.g., Darren, Arthur) remain intact  
-4. Monitor logs for suspicious registration attempts  
+. Attempt " darren" registration → should be rejected
+2. Validate username uniqueness (case-insensitive, trimmed)
+3. Confirm original users remain unaffected
+4. Monitor logs for suspicious attempts
 
 ---
 
@@ -201,37 +205,46 @@ Overall Risk: 🟧 Medium → Immediate fix recommended.
 
 ## 📚 References
 
-- OWASP Top 10 – A07: Identification & Authentication Failures  
-- CWE-287 – Improper Authentication  
-- NIST SP 800-115 – Technical Guide to Security Testing  
-- TryHackMe – Broken Authentication  
+1. **OWASP Top 10 – A07: Identification & Authentication Failures**  
+   [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
 
+2. **CWE-287 – Improper Authentication**  
+   [https://cwe.mitre.org/data/definitions/287.html](https://cwe.mitre.org/data/definitions/287.html)
+
+3. **NIST SP 800-115 – Technical Guide to Information Security Testing and Assessment**  
+   [https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
+
+4. **TryHackMe – Broken Authentication Room**  
+   [https://tryhackme.com/room/brokenauth](https://tryhackme.com/room/brokenauth)
+   
 ---
 
 ## 📎 Appendix
 
-Tools & Versions:
-- Burp Suite Community 2025.8  
-- Firefox 129.0  
-- Kali Linux Rolling 2025  
+**Tools & Versions:**
 
-Notes:
-- Performed in controlled educational lab  
-- No destructive payloads used  
+- Burp Suite 2025.8
+- Firefox 129.0
+- Kali Linux Rolling 2025
+
+**Notes:**
+
+- Controlled lab environment
+- No destructive payloads used
 
 ---
 
 ## 📑 Delivery Note
 
-Hello 👋,  
+Hello 👋,
 
-This Premium Report is crafted to serve both audiences:  
+This Enterprise Premium Report is crafted for:
 
-📌 Freelancer/Fiverr Clients → Clean, polished, easy-to-read, visual-ready.  
-📌 Bug Bounty / Security Teams → CVSS/CWE mapping, HTTP request/response, technical PoC.  
+- **Freelancer / Fiverr Clients:** Polished, visually professional, ready for submission
+- **Bug Bounty / Security Teams:** Complete CVSS/CWE mapping, PoC, raw HTTP requests
 
-It ensures you present yourself as a premium cybersecurity professional across all platforms (GitHub, Fiverr, Bugcrowd, HackerOne).  
+> Ensures professional presentation across GitHub, Fiverr, Bugcrowd, HackerOne
 
-Best regards,  
+**Prepared by:**  
 Asibur Rahaman  
 🛡 Ethical Hacker & Cybersecurity Specialist
