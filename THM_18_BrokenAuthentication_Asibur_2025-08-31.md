@@ -10,7 +10,7 @@ Date: August 31, 2025
 Version: Final Premium Edition  
 Prepared by: Asibur Rahaman  
 Title: Ethical Hacker & Cybersecurity Specialist  
-Contact: 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn  
+Contact:   📧 asib51639@gmail.com | 🌐 [GitHub](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/)  
 
 ---
 
