@@ -38,8 +38,9 @@ Contact: 📧 asib51639@gmail.com | 🌐 GitHub | 🔗 LinkedIn
 A thorough penetration test was conducted on the target application (10.201.90.135:8888).  
 
 *Key Findings:*  
-- *Vulnerability:* Broken Authentication / Re-Registration Logic Flaw  
-- *Severity:* Medium – CVSS 6.5 (CWE-287)  
+- *Vulnerability:*  [Broken Authentication / Re-Registration Logic Flaw](https://cwe.mitre.org/data/definitions/287.html)
+  
+- *Severity:*  Medium – CVSS 6.5 ([CWE-287](https://cwe.mitre.org/data/definitions/287.html))
 - *Impact:* An attacker can bypass duplicate username checks using leading spaces (e.g., " darren"), allowing unauthorized account access.  
 
 *Strategic Summary:*  
@@ -74,7 +75,6 @@ Reconnaissance → Input Testing → Exploitation → Documentation → Remediat
 - [OWASP Top 10 – A07: Identification & Authentication Failures](https://owasp.org/Top10/A07_Identification_and_Authentication_Failures/)  
 - [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
 - [NIST SP 800-115 – Technical Guide to Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-0
 
 ---
 
@@ -91,8 +91,7 @@ Reconnaissance → Input Testing → Exploitation → Documentation → Remediat
 **Title:** Broken Authentication / Re-Registration Logic Flaw  
 **CWE:** [CWE-287 – Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)  
 **CVSS v3.1 Vector:** `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N`  
-**Score:** 6.5 (Medium)  
-0
+**Score:** 6.5 (Medium)
 
 *Attack Scenario:*  
 - Register " darren" → duplicate validation bypassed  
@@ -130,7 +129,10 @@ username=%20darren&password=test123
 
 ### Server Response
 
-⚠ Session cookie allows unauthorized access
+HTTP/1.1 302 Found
+Location: /dashboard
+Set-Cookie: session=<REDACTED>; Path=/; HttpOnly; Secure
+Content-Length: 512
 
 ---
 
@@ -178,6 +180,21 @@ username=%20darren&password=test123
 - Email verification
 - Rate-limiting registration attempts
 - Periodic pentesting & audits
+
+### Developer Implementation Snippets  
+
+# Username normalization
+def normalize_username(u):
+    return u.strip().lower()
+
+username = normalize_username(input_username)
+if username_exists(username):
+    reject_registration()
+
+# Verify fix using curl
+curl -i -X POST http://10.201.90.135:8888/register \
+  -d "username=%20darren&password=test123" -s | head -n 10
+# Expect HTTP 400/409 or "username invalid/duplicate"
 
 ### Governance & Training:
 - Developer training on secure coding
