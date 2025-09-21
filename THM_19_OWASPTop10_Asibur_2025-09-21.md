@@ -157,7 +157,7 @@
    *Credentials sent via HTTP, no encryption.*
 
 4. **XXE Attack Proof (SS04)**  
-   - **Web Form:** ![(https://i.imgur.com/ByrD3Hb.jpeg)  
+   - **Web Form:** ![(https://i.imgur.com/Rhr3EKW.jpeg)  
    - **Burp Repeater:** ![SS04 – XXE Burp](https://i.imgur.com/bvAFFKv.jpeg)  
    *XML payload disclosed `/etc/passwd`.*
 
