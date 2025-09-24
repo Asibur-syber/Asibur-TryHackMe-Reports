@@ -1,0 +1,295 @@
+# 🛡️ TryHackMe – Room #21: Vulnversity (Ultimate Premium Report)
+
+<p align="center">
+<img src="https://i.imgur.com/QYVip77.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">
+</p>
+
+- **Client:** TryHackMe – Room #21 (Vulnversity) – Educational
+- **Project:** Full Machine Exploitation & Privilege Escalation Lab
+- **Date:** September 22, 2025
+- **Version:** 1.0 (Ultimate Premium — HackerOne-Ready Edition)
+- **Prepared by:** Asibur Rahaman
+- **Title:** Ethical Hacker & Cybersecurity Specialist
+- **Contact:** 📧 asib51639@gmail.com | 🌐 [GitHub](https://github.com/asiburrahman) | 🔗 [LinkedIn](https://linkedin.com/in/asiburrahman)
+
+---
+
+## 📖 Table of Contents
+
+1.  [Executive TL;DR](#-executive-tldr-decision-maker-ready)
+2.  [Scope & Engagement](#-scope--engagement)
+3.  [Testing Tools & Environment](#-testing-tools--environment)
+4.  [Findings Overview](#-findings-overview)
+5.  [Detailed Vulnerability Analysis](#-detailed-vulnerability-analysis)
+6.  [Technical Proof & Screenshots](#-technical-proof--screenshots)
+7.  [Remediation Roadmap](#-remediation-roadmap)
+8.  [CVSS & CWE Justification](#-cvss--cwe-justification)
+9.  [Risk Matrix & Business Impact](#-risk-matrix--business-impact)
+10. [References & Framework Mapping](#-references--framework-mapping)
+11. [Delivery Package & Notes](#-delivery-package--notes)
+
+---
+
+## ✨ Executive TL;DR (Decision-Maker Ready)
+
+- **Objective:** Full machine exploitation and privilege escalation on the Vulnversity VM in a safe lab environment.
+- **Outcome:** Initial access as `vulnuser`, followed by local privilege escalation to `root`. Report contains detailed PoC, screenshots, and a remediation roadmap.
+
+| Finding | Risk | Impact | Quick Fix | Host IP |
+| :--- | :--- | :--- | :--- | :--- |
+| Exposed service banners | Medium | Information disclosure; easier exploit selection | Remove version banners, restrict service access | 10.201.16.218 |
+| Outdated vulnerable services | High | Remote code execution / credential theft | Patch services, restrict access | 10.201.16.218 |
+| Weak credentials / default accounts | High | Unauthorized access | Enforce strong passwords, disable default accounts | 10.201.16.218 |
+| Sensitive files readable by service | High | Unauthorized info disclosure | Remove or secure backups | 10.201.16.218 |
+| Local privilege escalation (SUID/sudo) | Critical | Full root compromise | Remove SUID, patch kernel, limit sudoers | 10.201.16.218 |
+
+- **Business Impact:** Full system compromise can lead to data loss, lateral movement, and total environment control. Immediate mitigation is required.
+
+---
+
+## 📜 Scope & Engagement
+
+### In Scope:
+- Vulnversity VM ([TryHackMe Room #21](https://tryhackme.com/room/vulnversity)) — full network exploitation within lab boundaries.
+
+### Out-of-Scope:
+- Any real-world systems outside the lab.
+- Denial-of-Service (DoS) attacks beyond educational testing.
+
+### Methodology:
+1.  Reconnaissance & Discovery
+2.  Web & Service Enumeration
+3.  Initial Access & Exploitation (PoC)
+4.  Post-Exploitation & Privilege Escalation
+5.  Documentation & Reporting
+6.  Remediation Guidance
+
+---
+
+## 🛠️ Testing Tools & Environment
+
+### Primary Tools:
+- Nmap, Nikto, Gobuster, Dirb/Dirbuster
+- Metasploit (select exploit modules)
+- Netcat, curl, wget, ssh, socat
+- LinPEAS / LinEnum, sudo / SUID analysis
+- Strings / grep for credential discovery
+
+### Environment:
+- **Target:** Vulnversity VM (Lab IP: 10.201.16.218)
+- **Attacker:** Kali Linux VM (up-to-date)
+- **Note:** The lab is intentionally vulnerable for educational purposes.
+
+---
+
+## 📊 Findings Overview
+
+| ID | Finding | CVSS | Risk | CWE | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| VULN-01 | Exposed service banners & open ports | 6.5 | Medium | [CWE-200](https://cwe.mitre.org/data/definitions/200.html) | Confirmed |
+| VULN-02 | Weak/guessable credentials | 7.5 | High | [CWE-521](https://cwe.mitre.org/data/definitions/521.html) | Confirmed |
+| VULN-03 | Unpatched vulnerable service → RCE | 9.8 | High | [CWE-94](https://cwe.mitre.org/data/definitions/94.html) | Confirmed |
+| VULN-04 | Sensitive files readable by service | 7.5 | High | [CWE-200](https://cwe.mitre.org/data/definitions/200.html) | Confirmed |
+| VULN-05 | Local privilege escalation (SUID/sudo) | 9.8 | Critical | [CWE-732](https://cwe.mitre.org/data/definitions/732.html) | Confirmed |
+
+---
+
+## 🔍 Detailed Vulnerability Analysis
+
+### 1️⃣ VULN-01: Exposed Service Banners – Medium
+- **CWE:** [CWE-200 (Information Disclosure)](https://i.imgur.com/oBKEcPO.jpeg)
+- **Summary:** Nmap scans showed open ports (21, 22, 80) with version info. An attacker can easily select exploits.
+- **Remediation:** Hide version banners and restrict service access.
+
+### 2️⃣ VULN-02: Weak/Guessable Credentials – High
+- **CWE:** [CWE-521 (Weak Password)](https://cwe.mitre.org/data/definitions/521.html)
+- **Summary:** Gobuster revealed `/backup/db_backup.sql` containing weak user passwords.
+- **Impact:** Foothold gained on the system as `vulnuser`.
+- **Remediation:** Enforce strong passwords and rotate credentials.
+
+### 3️⃣ VULN-03: Unpatched Vulnerable Service → RCE – High
+- **CWE:** [CWE-94 (Code Injection)](https://cwe.mitre.org/data/definitions/94.html)
+- **Summary:** Exploitable service versions were identified, allowing remote code execution.
+- **Remediation:** Patch/update services.
+
+### 4️⃣ VULN-04: Sensitive Files Readable – High
+- **CWE:** [CWE-200 (Information Disclosure)](https://cwe.mitre.org/data/definitions/200.html)
+- **Summary:** Backup files accessible by a service account exposed passwords/flags.
+- **Remediation:** Restrict access and remove sensitive files.
+
+### 5️⃣ VULN-05: Local Privilege Escalation (SUID/sudo) – Critical
+- **CWE:** [CWE-732 (Incorrect Permission Assignment)](https://cwe.mitre.org/data/definitions/732.html)
+- **Summary:** `vulnuser` can execute `/usr/local/bin/backup.sh` as `root` without a password.
+- **Impact:** Full root access is possible.
+- **Remediation:** Remove SUID bits and secure `sudo` rules.
+
+---
+
+## 🖼️ Technical Proof & Screenshots
+
+1. ## SS01 — Nmap Service Version Scan
+![SS01 – Nmap Service Scan](https://i.imgur.com/oBKEcPO.jpeg/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS01_nmap_sV.png)  
+*Shows open ports and detected service versions on target `10.201.16.218`.*
+
+2. ## SS02 — Count Open TCP Ports
+![SS02 – Open TCP Ports Count](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS02_open_ports_count.png)  
+*Counts the number of open TCP ports discovered during scanning.*
+
+3. ## SS03 — Nmap Full Port Scan
+![SS03 – Nmap Full Port Scan](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS03_nmap_full_ports.png)  
+*Full 0–65535 TCP port scan results to locate any non-standard services.*
+
+4. ## SS04 — Nmap Aggressive Scan
+![SS04 – Nmap Aggressive Scan](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS04_nmap_aggressive.png)  
+*Aggressive scan including OS detection, version, NSE scripts and traceroute.*
+
+5. ## SS05 — List Open Ports (CSV)
+![SS05 – Open Ports List](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS05_open_ports_list.png)  
+*Extracted open ports in comma-separated format for downstream tooling.*
+
+6. ## SS06 — Squid Proxy Check
+![SS06 – Squid Proxy Check](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS06_squid_check.png)  
+*Probe/check results looking for Squid or proxy service behavior.*
+
+7. ## SS07 — HTTP Services Detection
+![SS07 – HTTP Services](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS07_http_services.png)  
+*Detection of HTTP/web servers (Apache, Nginx or generic HTTP) and banners.*
+
+8. ## SS08 — Access Web Service (port 3333)
+![SS08 – Web Access](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS08_web_access.png)  
+*Basic HTTP response/page returned from service on port `3333`.*
+
+9. ## SS09 — Curl (first 120 lines of response)
+![SS09 – HTTP Response Preview](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS09_curl_response.png)  
+*Preview of the first 120 lines of the HTTP response captured via `curl`.*
+
+10. ## SS10 — Gobuster Directory Enumeration
+![SS10 – Gobuster Enumeration](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS10_gobuster.png)  
+*Directory brute-force results revealing possible hidden directories/files.*
+
+11. ## SS11 — Curl `/admin` Endpoint
+![SS11 – Admin Endpoint](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS11_admin_endpoint.png)  
+*HTTP response captured from the `/admin` endpoint (potentially sensitive).*
+
+12. ## SS12 — Curl via Proxy
+![SS12 – Curl via Proxy](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS12_proxy.png)  
+*Testing HTTP requests routed through a proxy (accessibility / filtering check).*
+
+13. ## SS13 — Nmap HTTP Scripts (port 3333)
+![SS13 – Nmap HTTP Scripts](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS13_nmap_3333_scripts.png)  
+*Nmap NSE script outputs enumerating HTTP-specific details on port `3333`.*
+
+14. ## SS14 — Full HTTP Response Headers
+![SS14 – HTTP Headers](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS14_http_headers.png)  
+*Complete HTTP response headers captured for fingerprinting and misconfig checks.*
+
+15. ## SS15 — Curl `/admin` Full Response
+![SS15 – Admin Full Response](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS15_admin_full_response.png)  
+*Extended HTTP body/response from `/admin` endpoint (useful for PoC).*
+
+16. ## SS16 — Attempt: `/flag.txt`
+![SS16 – Flag.txt](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS16_flag.png)  
+*Shows contents of `flag.txt` if it was publicly accessible (sensitive artifact).*
+
+17. ## SS17 — Nikto Web Vulnerability Scan
+![SS17 – Nikto Scan](https://raw.githubusercontent.com/<GITHUB_USER>/<REPO>/<BRANCH>/screenshots/SS17_nikto.png)  
+*Nikto automated scan output enumerating common web vulnerabilities and issues.*
+
+> **Note:** For traceability, all screenshot filenames include timestamps and are included in the delivery package. The report intentionally does not discuss or reference any flag values.
+
+---
+
+## 🩹 Remediation Roadmap
+
+### Immediate (0–7 days):
+- Remove/secure sensitive backups.
+- Enforce strong passwords.
+- Remove unnecessary services and hide banners.
+- Patch vulnerable services.
+- Remove unnecessary SUID bits.
+
+### Short-Term (30 days):
+- Review `sudoers` rules.
+- Apply the least-privilege principle.
+- Centralize secret management.
+- Secure the deployment pipeline.
+
+### Long-Term (90+ days):
+- Integrate automated scans in CI/CD.
+- Implement host-based monitoring & EDR.
+- Conduct periodic red-team / priv-esc exercises.
+
+---
+
+## 📌 CVSS & CWE Justification
+
+| Finding | CVSS | CWE | Justification |
+| :--- | :--- | :--- | :--- |
+| Exposed banners | 6.5 | [CWE-200](https://cwe.mitre.org/data/definitions/200.html) | Information disclosure |
+| Weak credentials | 7.5 | [CWE-521](https://cwe.mitre.org/data/definitions/521.html) | Initial foothold possible |
+| SUID/sudo misconfig | 9.8 | [CWE-732](https://cwe.mitre.org/data/definitions/732.html) | Full root compromise |
+| Unpatched services | 9.8 | [CWE-94](https://cwe.mitre.org/data/definitions/94.html) | Remote code execution possible |
+| Sensitive files | 7.5 | [CWE-200](https://cwe.mitre.org/data/definitions/200.html) | Info disclosure / credential leakage |
+
+---
+
+## ⚠ Risk Matrix & Business Impact
+
+### Overall Risk: 🟥 High (root compromise achieved)
+- **Impact:** Full system compromise → data theft, lateral movement, persistent access.
+
+| Likelihood ↓ / Impact → | Low | Medium | High |
+| :--- | :--- | :--- | :--- |
+| Low | 🟩 Insignificant | 🟨 Minor | 🟨 Noticeable |
+| Medium | 🟨 Acceptable | 🟧 Serious | 🟥 Major |
+| High | 🟧 Significant | 🟥 Critical | 🟥 Catastrophic |
+
+---
+
+## 📚 References & Framework Mapping
+
+- [OWASP Top 10 (2021)](https://owasp.org/www-project-top-ten/)
+- [CWE Database](https://cwe.mitre.org/)
+- [NIST SP 800-115](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf)
+- [TryHackMe: Vulnversity Room](https://tryhackme.com/room/vulnversity)
+- [GitHub](https://github.com/asiburrahman)
+- [LinkedIn](https://linkedin.com/in/asiburrahman)
+
+---
+
+## 📑 Delivery Package & Notes
+
+- `THM_21_Vulnversity_Ultimate_Premium_Report.md`
+- Optional PDF export: `THM_21_Vulnversity_Ultimate_Premium_Report.pdf`
+- `screenshots/` folder → `SS01–SS17` (annotated, timestamped)
+- `commands.txt` — copy-paste ready
+- `linpeas_output.txt`, `nmap_initial.txt`, `gobuster.txt`
+
+---
+
+### Dear [Client Name],
+
+I hope this message finds you well.
+
+I am sharing my detailed report for the **TryHackMe Room #21: Vulnversity** lab. This report covers full machine exploitation and privilege escalation, including:
+
+- Reconnaissance and service enumeration
+- Initial access and exploitation (PoC)
+- Post-exploitation techniques and local privilege escalation
+- Technical proofs with screenshots
+- Comprehensive remediation roadmap (Immediate, Short-term, and Long-term)
+- CVSS/CWE mapping and Risk Matrix for business impact analysis
+
+**Important:** All testing was conducted in a safe, lab-only environment. No real-world systems were tested. Sensitive values and flags have been redacted to ensure ethical compliance.
+
+The report is attached as a PDF/Markdown file for easy review and use by your security or operations team. The documentation is structured to allow practical application of remediation steps and can serve as a reference for similar exercises.
+
+I am available for further lab assessments, report writing, or vulnerability research tasks. Please feel free to reach out if you have any questions or require additional details.
+
+Thank you for your consideration.
+
+Best regards,
+
+**Asibur Rahaman** *Ethical Hacker & Cybersecurity Specialist* 📧 asib51639@gmail.com  
+🌐 GitHub: [https://github.com/asiburrahman](https://github.com/asiburrahman)  
+🔗 LinkedIn: [https://linkedin.com/in/asiburrahman](https://linkedin.com/in/asiburrahman)
