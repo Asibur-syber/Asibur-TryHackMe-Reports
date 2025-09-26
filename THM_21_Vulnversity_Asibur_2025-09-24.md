@@ -138,11 +138,6 @@
 <a name="technical-proof--screenshots"></a>
 ## 🖼 Technical Proof & Screenshots
 
-> ![Badge](https://i.imgur.com/bLADupp.jpeg)  
-> **All screenshots are annotated, timestamped, and included in the delivery package. Flag values redacted.**
-
----
-
 1. **[SS01 — Nmap Service Version Scan](https://i.imgur.com/oBKEcPO.jpeg)**  
    ![SS01](https://i.imgur.com/oBKEcPO.jpeg)  
    *Nmap `-sV` output showing discovered services and versions.*
@@ -210,7 +205,10 @@
 17. **[SS17 — Nikto Web Vulnerability Scan](https://i.imgur.com/oNDqunN.jpeg)**  
     ![SS17](https://i.imgur.com/oNDqunN.jpeg)  
     *Nikto scan output listing common web issues and insecure headers.*
-    
+
+ > ![Badge](https://i.imgur.com/bLADupp.jpeg)  
+> **All screenshots are annotated, timestamped, and included in the delivery package. Flag values redacted.**
+   
 > All screenshots are annotated, timestamped, and included in the delivery package. Flag values redacted.
 
 ---
