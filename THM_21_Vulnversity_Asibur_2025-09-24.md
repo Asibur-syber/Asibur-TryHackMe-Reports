@@ -10,7 +10,7 @@
 *Version:* 1.0 (Ultimate Premium — HackerOne-Ready Edition)  
 *Prepared by:* Asibur Rahaman  
 *Title:* Ethical Hacker & Cybersecurity Specialist  
-*Contact:* 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub](https://github.com/asiburrahman) | 🔗 [LinkedIn](https://linkedin.com/in/asiburrahman)  
+*Contact:* 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/)  
 
 ---
 
@@ -309,5 +309,5 @@ Thank you for your consideration.
 *Asibur Rahaman*  
 Ethical Hacker & Cybersecurity Specialist  
 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com)  
-🌐 [GitHub](https://github.com/asiburrahman)  
-🔗 [LinkedIn](https://linkedin.com/in/asiburrahman)
+🌐 [GitHub](https://github.com/Asibur-syber)  
+🔗 [LinkedIn](https://www.linkedin.com/)
