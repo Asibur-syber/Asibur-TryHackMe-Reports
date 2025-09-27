@@ -1,0 +1,238 @@
+# TryHackMe Pickle Rick – Penetration Test Report (Ultimate Premium Edition)
+
+<p align="center">      
+<img src="https://i.imgur.com/FfPfO8k.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">      
+</p>
+
+**Client:** TryHackMe – Room #22 (Pickle Rick) – Educational  
+**Project:** Web Exploitation & Privilege Escalation  
+**Date:** September 27, 2025  
+**Version:** 1.0 (Ultimate Premium — HackerOne-Ready Edition)  
+**Prepared by:** Asibur Rahaman  
+**Title:** Ethical Hacker & Cybersecurity Specialist  
+**Contact:** 📧 asib51639@gmail.com | 🌐 [GitHub](https://github.com/asibur) | 🔗 [LinkedIn](https://linkedin.com/in/asibur)
+
+---
+
+## 📖 Table of Contents
+
+- [Executive TL;DR](#-executive-tldr)  
+- [Scope & Engagement](#-scope--engagement)  
+- [Testing Tools & Environment](#-testing-tools--environment)  
+- [Findings Overview](#-findings-overview)  
+- [Detailed Vulnerability Analysis](#-detailed-vulnerability-analysis)  
+- [Exploitation Timeline](#-exploitation-timeline)  
+- [Technical Proof & Screenshots](#-technical-proof--screenshots)  
+- [Remediation Roadmap](#-remediation-roadmap)  
+- [CVSS & CWE Justification](#-cvss--cwe-justification)  
+- [Risk Matrix & Business Impact](#-risk-matrix--business-impact)  
+- [References & Framework Mapping](#-references--framework-mapping)  
+- [Delivery Package & Notes](#-delivery-package--notes)  
+- [Personal Note to Client](#-personal-note-to-client)  
+
+---
+
+## ✨ Executive TL;DR
+
+**Objective:** Exploit the Pickle Rick VM to retrieve Rick’s secret ingredients and demonstrate command injection.  
+**Outcome:** Achieved shell access via command injection, escalated privileges, and retrieved all flags.  
+**Impact:** Demonstrates real-world exploitation of insecure input handling and privilege escalation via misconfigured scripts.
+
+| Finding                       | Risk     | Impact               | Quick Fix                      | Host IP         |
+|------------------------------|----------|----------------------|-------------------------------|-----------------|
+| [Command Injection (login form)](#prick-01-command-injection) | Critical | Remote shell access | Sanitize input, use parameterized code | 10.201.52.185   |
+| [Hardcoded Credentials](#prick-02-hardcoded-credentials)         | High     | Unauthorized access  | Remove credentials, use vault  | 10.201.52.185   |
+| [SUID Misconfigured Script](#prick-03-suid-misconfigured-script)   | High     | Root shell access    | Remove SUID, audit permissions | 10.201.52.185   |
+
+---
+
+## 📜 Scope & Engagement
+
+**In Scope:**  
+- Pickle Rick VM (TryHackMe Room #22) — [TryHackMe: Pickle Rick](https://tryhackme.com/room/picklerick)  
+- Web interface, backend scripts, and local privilege escalation  
+
+**Out-of-Scope:**  
+- Denial-of-Service  
+- External systems
+
+**Methodology:**  
+1. Reconnaissance ([Nmap](https://nmap.org/), [Gobuster](https://github.com/OJ/gobuster))  
+2. Web Enumeration  
+3. Exploitation (Command Injection)  
+4. Privilege Escalation  
+5. Flag Retrieval  
+6. Reporting & Remediation  
+
+---
+
+## 🛠 Testing Tools & Environment
+
+**Tools Used:**  
+- [Nmap](https://nmap.org/)  
+- [Gobuster](https://github.com/OJ/gobuster)  
+- curl  
+- [Burp Suite](https://portswigger.net/burp)  
+- Netcat  
+- Python reverse shell  
+- LinPEAS ([GitHub](https://github.com/carlospolop/PEASS-ng))  
+
+**Environment:**  
+- Attacker: Kali Linux (2023.4)  
+- Target: Pickle Rick VM (Lab IP: 10.201.52.185)  
+
+---
+
+## 📊 Findings Overview
+
+| ID       | Finding                                    | CVSS | Risk     | CWE      | Status    |
+|----------|--------------------------------------------|------|----------|----------|-----------|
+| PRICK-01 | [Command Injection (login form)](#prick-01-command-injection) | 9.8  | Critical | [CWE-77](https://cwe.mitre.org/data/definitions/77.html)  | Confirmed |
+| PRICK-02 | [Hardcoded Credentials](#prick-02-hardcoded-credentials)       | 7.5  | High     | [CWE-798](https://cwe.mitre.org/data/definitions/798.html) | Confirmed |
+| PRICK-03 | [SUID Misconfigured Script](#prick-03-suid-misconfigured-script)     | 8.2  | High     | [CWE-732](https://cwe.mitre.org/data/definitions/732.html) | Confirmed |
+
+---
+
+## 🔍 Detailed Vulnerability Analysis
+
+### 1️⃣ PRICK-01: Command Injection – Critical  
+<a name="prick-01-command-injection"></a>  
+**CWE:** [CWE-77](https://cwe.mitre.org/data/definitions/77.html)  
+**Summary:** `/login.php` accepts unsanitized input, allowing shell commands.  
+**PoC:**  ```
+admin' || ls / > /tmp/output.txt || 
+**Impact:** Remote shell access  
+**Remediation:** Use input validation and parameterized queries  
+**Proof & Screenshot:** See [SS03: Web Form Injection Payload](screenshots/SS03.jpg), [SS04: Command Output via Injection](screenshots/SS04.jpg)  
+
+---
+
+### 2️⃣ PRICK-02: Hardcoded Credentials – High  
+<a name="prick-02-hardcoded-credentials"></a>  
+**CWE:** [CWE-798](https://cwe.mitre.org/data/definitions/798.html)  
+**Summary:** Credentials found in source code or backup files  
+**Impact:** Unauthorized access  
+**Remediation:** Remove credentials, use secrets manager  
+**Proof & Screenshot:** See [SS02: Gobuster Directory Enumeration](screenshots/SS02.jpg)  
+
+---
+
+### 3️⃣ PRICK-03: SUID Misconfigured Script – High  
+<a name="prick-03-suid-misconfigured-script"></a>  
+**CWE:** [CWE-732](https://cwe.mitre.org/data/definitions/732.html)  
+**Summary:** `/usr/bin/sudo_script.sh` executable as root  
+**Impact:** Privilege escalation to root  
+**Remediation:** Remove SUID bit, audit sudoers  
+**Proof & Screenshot:** See [SS06: SUID Binary Exploitation](screenshots/SS06.jpg), [SS07: Root Shell Confirmation](screenshots/SS07.jpg)  
+
+---
+
+## ⏱ Exploitation Timeline
+
+| Phase              | Time Taken | Summary                                     | Evidence                     |
+|--------------------|------------|---------------------------------------------|------------------------------|
+| Reconnaissance     | 15 mins   | [Nmap](screenshots/SS01.jpg) + [Gobuster](screenshots/SS02.jpg) scanning | [SS01](screenshots/SS01.jpg), [SS02](screenshots/SS02.jpg) |
+| Web Enumeration    | 20 mins   | Identified vulnerable login form            | [SS03](screenshots/SS03.jpg)                    |
+| Exploitation       | 25 mins   | Command injection → shell access             | [SS04](screenshots/SS04.jpg)                    |
+| Privilege Escalation| 20 mins  | SUID script → root shell                      | [SS06](screenshots/SS06.jpg), [SS07](screenshots/SS07.jpg) |
+| Flag Retrieval     | 10 mins   | Read Rick’s ingredients                      | [SS05](screenshots/SS05.jpg)                    |
+| Documentation      | 1 hour    | Screenshots + Markdown + PDF                  | N/A                          |
+
+---
+
+## 🖼 Technical Proof & Screenshots
+
+| Screenshot ID | Description                    | File Path / Link                        |
+|---------------|-------------------------------|---------------------------------------|
+| SS01          | Nmap Scan Results              | [screenshots/SS01.jpg]                 |
+| SS02          | Gobuster Directory Enumeration | [screenshots/SS02.jpg]                 |
+| SS03          | Web Form Injection Payload     | [screenshots/SS03.jpg]                 |
+| SS04          | Command Output via Injection   | [screenshots/SS04.jpg]                 |
+| SS05          | Ingredient File Access         | [screenshots/SS05.jpg]                 |
+| SS06          | SUID Binary Exploitation       | [screenshots/SS06.jpg]                 |
+| SS07          | Root Shell Confirmation        | [screenshots/SS07.jpg]                 |
+
+*All screenshots are annotated, timestamped, and redacted for ethical compliance.*
+
+---
+
+## 🩹 Remediation Roadmap
+
+**Immediate (0–7 days):**  
+- Sanitize web inputs  
+- Remove hardcoded credentials  
+- Remove SUID permissions  
+
+**Short-Term (30 days):**  
+- Implement secure coding practices  
+- Audit user permissions  
+- Apply least privilege  
+
+**Long-Term (90+ days):**  
+- Conduct regular penetration tests  
+- Integrate secure CI/CD pipelines  
+- Monitor logs and alerts  
+
+---
+
+## 📌 CVSS & CWE Justification
+
+| Finding                      | CVSS | CWE      | Justification                       |
+|------------------------------|------|----------|-----------------------------------|
+| [Command Injection](#prick-01-command-injection)       | 9.8  | CWE-77   | Full shell access via web input   |
+| [Hardcoded Credentials](#prick-02-hardcoded-credentials) | 7.5  | CWE-798  | Easy unauthorized access          |
+| [SUID Misconfigured Script](#prick-03-suid-misconfigured-script)    | 8.2  | CWE-732  | Root access via misconfigured script |
+
+---
+
+## ⚠ Risk Matrix & Business Impact
+
+Overall Risk: 🟥 **Critical**  
+Impact: Full system compromise, root access, data leakage  
+
+| Likelihood ↓  Impact → | Low       | Medium     | High       |
+|------------------------|-----------|------------|------------|
+| Low                    | 🟩 Minor  | 🟨 Noticeable | 🟨 Serious  |
+| Medium                 | 🟨 Acceptable | 🟧 Major  | 🟥 Critical |
+| High                   | 🟧 Major  | 🟥 Severe  | 🟥 Catastrophic |
+
+---
+
+## 📚 References & Framework Mapping
+
+- [OWASP Top 10 (2021)](https://owasp.org/www-project-top-ten/)  
+- [CWE Database](https://cwe.mitre.org/)  
+- [NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final)  
+- TryHackMe: [Pickle Rick Room](https://tryhackme.com/room/picklerick)  
+- [GitHub](https://github.com/asibur)  
+- [LinkedIn](https://linkedin.com/in/asibur)  
+
+---
+
+## 📑 Delivery Package & Notes
+
+- `THM22PickleRickUltimatePremium_Report.md`  
+- `THM22PickleRickUltimatePremium_Report.pdf`  
+- `screenshots/` → SS01–SS07 (annotated, timestamped)  
+- `commands.txt` — CLI steps  
+- `linpeasoutput.txt`, `nmapscan.txt`, `gobuster.txt`  
+
+---
+
+## 💌 Personal Note to Client
+
+> Dear [Client Name],  
+>  
+> I crafted this report not just to demonstrate technical skill, but to earn your trust. Every screenshot, every annotation, every command — was executed with precision and documented with care.  
+>  
+> My goal is simple: to deliver reports that speak your language — business impact, reproducibility, and ethical clarity.  
+>  
+> If this report meets your expectations, I’m ready to take on more labs, write deeper reports, and help secure your systems with the same level of dedication.  
+>  
+> Thank you for considering my work.  
+>  
+> Best regards,  
+> Asibur Rahaman  
+> Ethical Hacker & Cybersecurity Specialist
+
+---
