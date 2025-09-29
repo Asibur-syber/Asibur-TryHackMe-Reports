@@ -1,125 +1,128 @@
-# 🛡 PENETRATION TEST REPORT  
-## 🔐 TryHackMe Room – #02: What is Networking (🟢 Informational)
+# 🛡️ PENETRATION TEST REPORT – ULTIMATE PREMIUM EDITION  
+## 🔐 TryHackMe Room #02 – What is Networking (🟢 Informational)
+
+<p align="center">        
+<img src="https://i.imgur.com/cixYkrf.jpeg" alt="Networking Badge Banner" width="100%">        
+</p>  
+
+**Client:** TryHackMe – Room #02 (What is Networking) – Educational  
+**Project:** Networking Fundamentals & Conceptual Awareness  
+**Date:** July 22, 2025  
+**Version:** 1.0 (Ultimate Premium — HackerOne-Ready Edition)  
+**Prepared by:** Asibur Rahaman  
+**Title:** Ethical Hacker & Cybersecurity Learner  
+**Contact:** [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://linkedin.com/feed)
 
 ---
 
-# 🧑‍💻 ASIBUR RAHAMAN  
-Ethical Hacker | Cybersecurity Learner | Web Recon & Auth Testing Enthusiast  
-🔗 GitHub: [github.com/Asibur-syber](https://github.com/Asibur-syber)  
-🔗 LinkedIn: [linkedin.com/feed](https://linkedin.com/feed)
-
-> "Beginner to advanced TryHackMe walkthrough reports documenting my practical cybersecurity learning journey."
-
----
-
-## 📌 SUMMARY
-
-| Target Environment   | Scope Type        | Total Findings | Risk Level |
-|----------------------|-------------------|----------------|------------|
-| THM Online Platform  | Educational Room  | 0              | 🟢 Informational |
-
----
-
-## 📚 TABLE OF CONTENTS
-- [🧠 Executive Summary](#-executive-summary)  
-- [📜 Scope & Limitations](#-scope--limitations)  
+## 📖 Table of Contents  
+- [✨ Executive TL;DR](#-executive-tldr)  
+- [📜 Scope & Engagement](#-scope--engagement)  
 - [💡 Business Impact](#-business-impact)  
 - [🔍 Methodology](#-methodology)  
-- [📊 Findings Table](#-findings-table)  
-- [🔒 Analysis & Risk Ratings](#-analysis--risk-ratings)  
+- [📊 Findings Overview](#-findings-overview)  
+- [🔒 Risk Analysis](#-risk-analysis)  
 - [🛠 Tools & Techniques](#-tools--techniques)  
-- [🖼 Proof & Screenshots](#-proof--screenshots)  
+- [🖼 Technical Proof & Screenshots](#-technical-proof--screenshots)  
 - [🧪 MCQ Solutions](#-mcq-solutions)  
 - [📈 Next Steps](#-next-steps)  
 - [✅ Conclusion](#-conclusion)  
-- [⚠ Visual Risk Matrix](#-visual-risk-matrix)  
+- [⚠ Risk Matrix & Visual Summary](#-risk-matrix--visual-summary)  
 - [📎 Appendix](#-appendix)  
 - [📚 References](#-references)  
-- [✍ Signature](#-signature)
+- [📑 Delivery Package & Notes](#-delivery-package--notes)  
+- [💌 Personal Note to Client](#-personal-note-to-client)
 
 ---
 
-## 🧠 EXECUTIVE SUMMARY
+## ✨ Executive TL;DR
 
-This report documents the walkthrough of *TryHackMe’s "What is Networking"* room, intended to help beginners understand the basics of computer networking. Key topics covered include:
+This engagement focused on TryHackMe’s *“What is Networking”* room — a beginner-friendly walkthrough designed to build foundational knowledge in computer networking.
 
-- What is a network and how data flows  
-- IP addressing and DNS resolution  
-- LAN vs WAN  
-- Routers, switches, and firewalls  
-- Public vs Private IPs  
-- Introduction to the OSI model
+- **Objective:** Understand core networking concepts including IP, DNS, LAN/WAN, OSI model, and protocols.  
+- **Outcome:** All tasks completed successfully, MCQs solved, and diagrams reviewed.  
+- **Impact:** No vulnerabilities found — purely educational.  
+- **Business Value:** Strengthens team awareness and prepares learners for real-world reconnaissance and scanning labs.
 
-> 🎯 *Goal:* Build a solid conceptual base in computer networking to enable hands-on recon and enumeration in future penetration testing labs.
-
----
-
-## 📜 SCOPE & LIMITATIONS
-
-| Scope Included | Description |
-|----------------|-------------|
-| ✅ Room Content | All theoretical and quiz content within TryHackMe room  
-| ✅ Educational Diagrams | Networking flow visuals and models  
-| ❌ Live Exploitation | No machines were hacked  
-| ❌ Real Networks | Lab-only theoretical exploration  
+| Finding             | Risk     | Impact           | Quick Fix                 | Host IP |
+|---------------------|----------|------------------|---------------------------|---------|
+| Informational Only  | 🟢 Low   | No exploitation  | Proceed to practical labs | N/A     |
 
 ---
 
-## 💡 BUSINESS IMPACT
+## 📜 Scope & Engagement
 
-| Benefit | Description |
-|--------|-------------|
-| Team Awareness | Staff can better understand IT infrastructure  
-| Knowledge Foundation | Crucial before performing real-world pentesting  
-| Reduced Misconfigurations | Teams become more aware of network structure  
+**In Scope:**  
+- TryHackMe Room #02 – What is Networking  
+- All theoretical tasks, MCQs, and diagrams  
 
----
+**Out-of-Scope:**  
+- Exploitation or scanning  
+- Real-world networks  
 
-## 🔍 METHODOLOGY
-
-| Step | Action |
-|------|--------|
-| Study | Read all tasks in room to grasp networking principles  
-| Diagram Review | Visualize concepts using TryHackMe-provided graphics  
-| Quiz Completion | Solve all MCQ tasks and verify answers  
-| Document | Record key takeaways and insights  
+**Methodology:**  
+1. Study & Review  
+2. Diagram Analysis  
+3. MCQ Solving  
+4. Documentation  
 
 ---
 
-## 📊 FINDINGS TABLE
+## 💡 Business Impact
 
-| ID | Finding | Risk | Evidence | Recommendation |
-|----|---------|------|----------|----------------|
-| N/A | Informational learning only | 🟢 Low | Quiz results | Continue advancing to practical networking labs |
-
----
-
-## 🔒 ANALYSIS & RISK RATINGS
-
-| Scenario | Potential Impact | Realized? |
-|----------|------------------|-----------|
-| Ignorance of IP/DNS | 🟥 High | ❌  
-| Confusion between LAN/WAN | 🟧 Medium | ❌  
-| No knowledge of ports/protocols | 🟨 Low | ❌  
-
-🟢 *Current Risk Level:* Informational — No technical threat or vulnerability found
+| Benefit               | Description                              |
+|-----------------------|------------------------------------------|
+| Team Awareness         | Improves understanding of IT infrastructure  
+| Knowledge Foundation   | Prepares for future pentesting labs  
+| Reduced Misconfigurations | Helps avoid basic network setup errors  
 
 ---
 
-## 🛠 TOOLS & TECHNIQUES
+## 🔍 Methodology
 
-| Concept/Tool | Purpose |
-|--------------|---------|
-| DNS | Resolve domain names to IP addresses  
-| IP Address | Identify machines on a network  
-| Router | Direct traffic between networks  
-| Switch | Handle traffic inside a local network  
-| OSI Model | Understand communication layers  
-| Ports & Protocols | Identify services (e.g., HTTP → 80, SSH → 22)  
+| Phase          | Action Taken             |
+|----------------|--------------------------|
+| Study          | Read all room tasks      |
+| Diagram Review | Analyzed TryHackMe visuals |
+| MCQ Completion | Solved all quizzes       |
+| Documentation  | Created structured report|
 
 ---
 
-## 🖼 PROOF & SCREENSHOTS
+## 📊 Findings Overview
+
+| ID     | Finding             | Risk | Status    | Recommendation           |
+|--------|---------------------|------|-----------|---------------------------|
+| NET-01 | Informational Room  | 🟢 Low | Completed | Proceed to next lab       |
+
+---
+
+## 🔒 Risk Analysis
+
+| Scenario                   | Potential Impact | Realized? |
+|----------------------------|------------------|-----------|
+| Lack of IP/DNS knowledge   | 🟥 High           | ❌  
+| LAN/WAN confusion          | 🟧 Medium         | ❌  
+| No protocol/port awareness | 🟨 Low            | ❌  
+
+🟢 **Overall Risk Level:** Informational — No technical threat found
+
+---
+
+## 🛠 Tools & Techniques
+
+| Concept/Tool | Purpose                          |
+|--------------|----------------------------------|
+| DNS          | Resolve domain names             |
+| IP Address   | Identify networked devices       |
+| Router       | Connect different networks       |
+| Switch       | Manage LAN traffic               |
+| OSI Model    | Understand communication layers  |
+| Protocols    | Map services to ports (e.g., HTTP → 80) |
+
+---
+
+## 🖼 Technical Proof & Screenshots
 
 > 📘 **Room Completion Proof**  
 > ![Room Completion](https://i.imgur.com/XxAeqON.jpeg)
@@ -134,85 +137,92 @@ This report documents the walkthrough of *TryHackMe’s "What is Networking"* ro
 > ![Badge](https://i.imgur.com/nztkeYl.jpeg)
 ---
 
-## 🧪 MCQ SOLUTIONS
+## 🧪 MCQ Solutions
 
-| Question | Correct Answer |
-|----------|----------------|
-| What does DNS stand for? | Domain Name System  
-| What type of IP address is 192.168.1.1? | Private  
+| Question                                  | Correct Answer         |
+|-------------------------------------------|-------------------------|
+| What does DNS stand for?                  | Domain Name System  
+| What type of IP address is 192.168.1.1?   | Private  
 | Which device connects different networks? | Router  
 | Which layer in OSI handles IP addressing? | Network  
-| What does LAN stand for? | Local Area Network  
-| What protocol uses port 80? | HTTP  
+| What does LAN stand for?                  | Local Area Network  
+| What protocol uses port 80?               | HTTP  
 
-✅ All answers verified through TryHackMe platform
-
----
-
-## 📈 NEXT STEPS
-
-- 🔗 Proceed to: *Room 03 – Network Fundamentals*  
-- 🧠 Start practicing with *ping, nslookup, traceroute*  
-- 📡 Learn real-world scanning tools like *nmap*  
-- 💻 Move towards *interactive lab-based learning*
+✅ All answers verified via TryHackMe platform
 
 ---
 
-## ✅ CONCLUSION
+## 📈 Next Steps
 
-The *"What is Networking"* room was successfully completed. It provided a foundational understanding of:
-
-- Network types and structures  
-- IP addresses and DNS  
-- Key network devices  
-- OSI model fundamentals
-
-This conceptual grounding is crucial before diving into *real-world reconnaissance, scanning, and exploitation labs*.
-
-🟢 *Risk Level:* Informational  
-🛣 *Next Step:* Begin command-line interaction and port scanning basics
+- 🔗 Advance to: [Room #03 – Network Fundamentals](https://tryhackme.com/room/networkfundamentals)  
+- 🧠 Practice: `ping`, `nslookup`, `traceroute`  
+- 📡 Learn: `nmap`, `netstat`, `ipconfig`  
+- 💻 Begin: Interactive lab-based scanning & enumeration
 
 ---
 
-## ⚠ VISUAL RISK MATRIX
+## ✅ Conclusion
 
-| Likelihood ↓ \ Impact → | Low | Medium | High |
-|--------------------------|-----|--------|------|
-| Low                      | 🟢  | 🟨     | 🟨   |
-| Medium                   | 🟨  | 🟧     | 🟥   |
-| High                     | 🟨  | 🟥     | 🟥   |
+The *“What is Networking”* room was completed successfully. It laid the groundwork for understanding:
 
-🟢 Current Risk Level: No Risk / Informational Only
+- Network structures  
+- IP addressing & DNS  
+- OSI model  
+- Key devices & protocols  
 
----
-
-## 📎 APPENDIX
-
-- *LAN* = Local Area Network  
-- *WAN* = Wide Area Network  
-- *DNS* = Domain Name System  
-- *IP* = Internet Protocol  
-- *HTTP* = Port 80 | *HTTPS* = Port 443  
-- *OSI Layers* = Physical → Application
+🟢 **Risk Level:** Informational  
+🛣 **Next Step:** Begin CLI-based network interaction
 
 ---
 
-## 📚 REFERENCES
+## ⚠ Risk Matrix & Visual Summary
 
-- TryHackMe Room: [What is Networking](https://tryhackme.com/room/whatisnetworking)  
+| Likelihood ↓ / Impact → | Low       | Medium     | High         |
+|--------------------------|-----------|------------|--------------|
+| Low                      | 🟢 Minor  | 🟨 Noticeable | 🟨 Serious   |
+| Medium                   | 🟨 Acceptable | 🟧 Major | 🟥 Critical  |
+| High                     | 🟨 Major  | 🟥 Severe  | 🟥 Catastrophic |
+
+🟢 **Current Risk Level:** Informational Only
+
+---
+
+## 📎 Appendix
+
+- LAN = Local Area Network  
+- WAN = Wide Area Network  
+- DNS = Domain Name System  
+- IP = Internet Protocol  
+- HTTP = Port 80 | HTTPS = Port 443  
+- OSI Layers = Physical → Application  
+
+---
+
+## 📚 References
+
+- [TryHackMe Room: What is Networking](https://tryhackme.com/room/whatisnetworking)  
 - Cisco Networking Basics  
 - CompTIA Network+ Notes  
-- OWASP Networking Principles
+- OWASP Networking Principles  
 
 ---
 
-## ✍ SIGNATURE
+## 📑 Delivery Package & Notes
 
-Prepared by:  
-🧑‍💻 *Asibur Rahaman*  
-📅 Report Date: July 22, 2025  
-📧 Email: asib51639@gmail.com  
-🔗 GitHub: [github.com/Asibur-syber](https://github.com/Asibur-syber)  
-🔗 LinkedIn: [linkedin.com/feed](https://linkedin.com/feed)
+This folder contains all premium deliverables for the **TryHackMe Room #02 – What is Networking** walkthrough, prepared by **Asibur Rahaman** in HackerOne-ready format.
 
-> “Strong networks build strong defenses — learn the basics, defend the future.”
+---
+
+## 💌 Personal Note to Client
+
+> Dear [Client],  
+>  
+> This report was crafted to reflect both technical clarity and educational value. While no vulnerabilities were found, the conceptual foundation built here is essential for future penetration testing success.  
+>  
+> I look forward to documenting more advanced labs with actionable findings and reproducible evidence.  
+>  
+> Thank you for supporting my cybersecurity learning journey.  
+>  
+> Best regards,  
+> **Asibur Rahaman**  
+> Ethical Hacker & Cybersecurity Learner
