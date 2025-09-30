@@ -175,7 +175,7 @@ admin' || ls / > /tmp/output.txt ||
    *SUID binaries and sudo permissions enumerated — potential privilege escalation vectors.*
 
 10. **Root Shell Confirmation & Flag (SS10)**  
-    ![SS10 – Root Shell and Flag](https://i.imgur.com/SS10_placeholder.png)  
+    ![SS10 – Root Shell and Flag](https://i.imgur.com/MPRGaWu.png)  
     *Root shell confirmed; root flag recovered — redact flag before public disclosure.*
 
 > 🎨 Visual badge / summary:  
