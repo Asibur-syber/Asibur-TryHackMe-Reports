@@ -1,7 +1,7 @@
 # 🧪 TryHackMe Blue – Penetration Test Report (Ultimate Premium Edition)
 
 <p align="center">  
-<img src="https://i.imgur.com/BlueVM_placeholder.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">  
+<img src="https://i.imgur.com/MNlo0V7.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">  
 </p>
 
 *Client:* TryHackMe – Room #23 (Blue) – Educational  
@@ -10,7 +10,7 @@
 *Version:* 1.1 (Ultimate Premium — HackerOne-Ready Edition)  
 *Prepared by:* Asibur Rahaman  
 *Title:* Ethical Hacker & Cybersecurity Specialist  
-*Contact:* 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE)  
+*Contact:* 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/)  
 
 ---
 
@@ -177,16 +177,40 @@ Remediation: Inventory installed packages and apply vendor patches.
 
 > All screenshots and raw logs are stored in the repository under /screenshots/ and /logs/ respectively. Sensitive values (flags, credentials) have been redacted in public copies — full artifacts are available on request under NDA (Non-Disclosure Agreement).
 
-| Image File | Caption | Purpose |
-|:---|:---|:---|
-| screenshots/SS01InitialNmap10.201.121.110.png | Initial nmap discovery scan (open ports and services). | Proves Reconnaissance Phase. |
-| screenshots/SS02SMBEnum10.201.121.110.png | enum4linux / smbclient output showing shares and user info (redacted). | Proves Enumeration Phase. |
-| screenshots/SS03VulnScan10.201.121.110.png | Vulnerability scan result indicating MS17-010 (EternalBlue) evidence. | Proves Vulnerability Confirmation. |
-| screenshots/SS04ExploitPoC10.201.121.110.png | Metasploit session showing exploit selection and execution attempts (sensitive items redacted). | Proves Exploitation Phase. |
-| screenshots/SS05ShellInfo10.201.121.110.png | getuid / sysinfo output — shell access confirmation. | Proves Initial Access. |
-| screenshots/SS06LocalEnum10.201.121.110.png | Local enumeration: running processes, system info, user accounts. | Proves Post-Exploitation. |
-| screenshots/SS07PrivEsc10.201.121.110.png | Privilege escalation evidence (flags redacted). | Proves Full Compromise. |
-| screenshots/SS08FlagTimestamp10.201.121.110.png | Final timestamp / proof image for attack completion (flags redacted). | Proves Objective Completion. |
+1. **Initial Nmap Scan (SS01)**  
+   ![SS01 – Initial Nmap Scan](https://i.imgur.com/ZL7oBOJ.jpeg)  
+   *Initial Nmap output showing open ports and service fingerprints.*
+
+2. **SMB Enumeration (SS02)**  
+   ![SS02 – SMB Enumeration](https://i.imgur.com/JCYjuM2.jpeg)  
+   *Discovered SMB shares, NetBIOS name and domain/workgroup information.*
+
+3. **Vulnerability Identification (SS03)**  
+   ![SS03 – Vulnerability Identification](https://i.imgur.com/SdtZvKz.jpeg)  
+   *Confirmed whether MS17-010 / other SMB vulnerabilities are present; exploit references captured.*
+
+4. **Exploit PoC Output (SS04)**  
+   ![SS04 – Exploit PoC](https://i.imgur.com/bjGyKhv.jpeg)
+   *Exploit run output; capture successful session lines (redact sensitive strings for public disclosure).*
+
+5. **Reverse Shell Confirmation (SS05)**  
+   ![SS05 – Reverse Shell Confirmation](https://i.imgur.com/NI8IH07.jpeg)  
+   *Show session index, `getuid` and `sysinfo` outputs as confirmation of access.*
+
+6. **Local Enumeration (SS06)**  
+   ![SS06 – Local Enumeration](https://i.imgur.com/3DvjAAP.jpeg)  
+   *Local enumeration showing process list and privilege information.*
+
+7. **Final Flag 1 (SS07)**  
+   ![SS07 – Final Flag 1](https://i.imgur.com/wclT3MP.jpeg)  
+   *Redacted Final Flag 1 (public copy must show `THM{access_the_machine}` or similar). Keep the unredacted original in /loot/.*
+
+8. **Final Flag 2 (SS08)**  
+   ![SS08 – Final Flag 2](https://i.imgur.com/684Nvic.jpeg)  
+   *Redacted Final Flag 2 with timestamp as proof of completion. Ensure timestamp and timezone are visible.*
+
+> 🎨 Visual badge / summary:  
+> ![Badge](https://i.imgur.com/gnkm3rd.jpeg)
 
 ---
 
