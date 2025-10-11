@@ -10,7 +10,7 @@
 **Version:** 1.2 (Ultimate Premium — Enhanced for Clarity)  
 **Prepared by:** Asibur Rahaman  
 **Title:** Ethical Hacker & Cybersecurity Specialist  
-**Contact:** 📧 (asib51639@gmail.com)(mailto:asib51639@gmail.com)| 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn ](https://www.linkedin.com/)
+**Contact:** 📧 (asib51639@gmail.com)| 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn ](https://www.linkedin.com/)
 
 ---
 
