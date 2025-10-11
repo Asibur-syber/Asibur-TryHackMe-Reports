@@ -11,7 +11,7 @@ Date: October 9, 2025
 Version: 1.0 (Ultimate Premium — HackerOne-Ready Edition)  
 Prepared by: Asibur Rahaman  
 Title: Ethical Hacker & Cybersecurity Specialist  
-Contact: 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/in/asibur-rahaman)  
+Contact: 📧 [asib51639@gmail.com](mailto:asib51639@gmail.com) | 🌐 [GitHub — Asibur-syber](https://github.com/Asibur-syber) | 🔗 [LinkedIn](https://www.linkedin.com/)  
 
 ---
 
