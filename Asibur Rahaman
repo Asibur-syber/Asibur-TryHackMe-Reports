@@ -1,0 +1,242 @@
+
+🧪 TryHackMe Internal – Penetration Test Report (A+ Premium — Zero‑Trust Edition)
+
+<p align="center">  
+<img src="https://i.imgur.com/MNlo0V7.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">  
+</p>  
+
+*Client:* TryHackMe — Room #27 (Internal) — Educational Simulation  
+*Project:* CRITICAL Web Exposure and Post-Exploitation Assessment  
+*Date:* November 21, 2025  
+*Version:* 2.2 (A+ Premium — Elite International Standard)  
+*Prepared by:* Asibur Rahaman  
+*Title:* Ethical Hacker & Cybersecurity Specialist  
+*Contact:* 📧 asib51639@gmail.com | 🌐 GitHub — [Asibur-syber](https://github.com/Asibur-syber)
+
+---
+
+## Table of Contents  
+Executive TL;DR: The Zero-Day Risk  
+Scope & Engagement  
+Testing Tools & Environment  
+Findings Overview (Critical Summary)  
+Detailed Vulnerability Analysis: The Attack Path  
+Exploitation Timeline (Verified Kill Chain)  
+Technical Proof & Screenshots (19 Step-by-Step Evidence)  
+Remediation Roadmap (Prioritized with tickets)  
+CVSS & CWE Justification (Forensic Depth)  
+Risk Matrix & Business Impact (The Real Cost)  
+Delivery Package & Notes  
+Evidence / Redaction Policy  
+One‑page Executive Summary (Board‑ready)  
+Fiverr / Client‑Ready Package Suggestions  
+References & Framework Mapping  
+Personal Note to Client & Licensing
+
+---
+
+## Executive TL;DR: The Zero-Day Risk  
+Objective: To validate the security posture of the Internal VM (IP: 10.65.147.161) focusing on vectors leading to full system compromise and data exfiltration.  
+Executive Summary (Critical): The assessment exposed a fundamentally broken security control within the web application: Unrestricted File Upload. This vulnerability provided an Immediate Remote Code Execution (RCE) vector. Once the attacker achieved a low-privilege shell, the system failed a second critical security test by providing a Misconfigured SUID Binary, allowing unauthenticated, direct elevation to the Root account (complete system takeover). The entire breach, from reconnaissance to root, was executed in under one hour, demonstrating an unacceptable time‑to‑compromise.  
+Immediate Business Risk: CATASTROPHIC AND IMMINENT. This attack chain means a hostile actor can breach the network perimeter, seize full control of the hosting server, deploy ransomware, steal all stored data, or use this host as a staging ground for a lateral attack against your entire internal network. Immediate containment (P0 actions) is not optional.  
+Status: Full Root compromise verified. Findings validated and documented across 19 verifiable forensic steps.
+
+---
+
+## Scope & Engagement  
+In Scope  
+* Internal VM — TryHackMe Room #27 (IP: 10.65.147.161)  
+* Full Kill Chain simulation: RCE → Initial Access → Privilege Escalation → Persistence.  
+
+Methodology (MITRE ATT&CK Aligned)  
+* Reconnaissance & Weaponization (Discovery, [T1595](https://attack.mitre.org/tactics/TA0043/))  
+* Delivery & Exploitation (Initial Access, [T1509](https://attack.mitre.org/techniques/T1509/))  
+* Command & Control (C2, [T1071](https://attack.mitre.org/techniques/T1071/))  
+* Privilege Escalation ([T1548.001](https://attack.mitre.org/techniques/T1548/001/))  
+* Actions on Objective (Impact): Demonstrating total control via flag retrieval
+
+---
+
+## Testing Tools & Environment  
+
+| Tool | Purpose | Version / Notes |  
+|---|---|---|  
+| [Nmap](https://nmap.org/) | Host Discovery and Network Fingerprinting | nmap 7.93 |  
+| [Gobuster](https://github.com/OJ/gobuster) | Critical Directory/Path Discovery (Attack Surface Enumeration) | gobuster 3.x |  
+| [Nikto](https://cirt.net/Nikto2) | Aggressive Web Server Misconfiguration Scan | Nikto 2.1.6 |  
+| [Burp Suite](https://portswigger.net/burp) | Payload Delivery and Request Tampering (Evidence Generation) | Professional/Community Edition |  
+| Netcat (nc) | Essential C2 Channel Listener and Connection Validation | nc (openbsd) |  
+| [PEASS-ng](https://github.com/carlospolop/PEASS-ng) | Post-Exploitation Enumeration (Focus on SUID/Sudo) | PEASS-ng latest |  
+
+---
+
+## Findings Overview (Critical Summary)  
+
+| ID | Finding Title | CVSS (v3) | Risk | CWE | Mitigation Urgency |  
+|---|---|---|---|---|---|  
+| WEB-01 | Unrestricted File Upload → RCE | 9.8 | CRITICAL | [CWE‑434](https://cwe.mitre.org/data/definitions/434.html) | P0: IMMEDIATE (0‑7 Days) |  
+| LIN-01 | Misconfigured SUID Binary: Root Access | 8.8 | HIGH | [CWE‑276](https://cwe.mitre.org/data/definitions/276.html) | P0: IMMEDIATE (0‑7 Days) |  
+| WEB-02 | Absence of Input/Extension Validation | 7.5 | HIGH | [CWE‑20](https://cwe.mitre.org/data/definitions/20.html) | P1: Short-Term (7‑30 Days) |
+
+Overall Risk: 🔴 CRITICAL — These vulnerabilities represent a total breakdown in defensive layers, enabling non-stop progression from external access to root privileges.
+
+---
+
+## Detailed Vulnerability Analysis: The Attack Path  
+
+*WEB-01 — Unrestricted File Upload → RCE (CRITICAL - P0)*  
+Description: The vulnerability lies in the /upload endpoint, which implicitly trusts all user input. The lack of server-side validation on file extensions (allowing .php) and file content means the application is weaponized against itself. This is a single-point-of-failure for network security.  
+Impact (The Fear Factor): This is the equivalent of leaving the vault door open. Any attacker can remotely inject and execute arbitrary malicious code on your hosting server. This grants initial access which is the hardest stage for a legitimate attacker and the easiest stage for a hostile one. Your server is currently functioning as an attacker-controlled drone.  
+Lab PoC Highlights (See 📸 8 & 📸 9): The use of a basic php-reverse-shell.php proves no advanced hacking techniques are required. The shell was received instantaneously upon browsing to the uploaded file.  
+Jira Ticket: SEC-RCE-001 — CRITICAL: IMMEDIATE — Disable script execution and enforce Whitelisting in all upload paths.  
+
+*LIN-01 — Misconfigured SUID Binary: Root Access (HIGH - P0)*  
+Description: Post-exploitation analysis revealed that the internal Linux configuration is fundamentally flawed. A standard system binary, /usr/bin/script, has the SUID bit set, meaning any low-privileged user (like the web server user achieved in WEB-01) can execute it with the permissions of the file owner, which is Root.  
+Impact (System Takeover): This flaw is a system backdoor installed by misconfiguration. It provides a non-traceable, unauthenticated straight-line path to full administrative control (Root). An attacker can immediately pivot from a low-level beachhead to total system dominance, enabling kernel-level persistence and complete data control.  
+Lab PoC Highlights (See 📸 14, 📸 15, & 📸 16): The exploit required a single, simple command line argument to execute /bin/bash as the root user. This ease of execution dramatically elevates the risk score.  
+Jira Ticket: SEC-LPE-001 — IMMEDIATE — Remove SUID bit from all non-essential binaries and conduct a full SUID audit.
+
+---
+
+## Exploitation Timeline (Verified Kill Chain)  
+
+| Phase | Time Taken | Risk Level | ATT&CK Tactic | Summary of Action (Breach Step) |  
+|---|---|---|---|---|  
+| Recon | 10 mins | Low | Discovery | Scanning revealed the web service and the critical /upload directory (📸 1 - 4). |  
+| Initial Access | 25 mins | CRITICAL | Execution | RCE achieved using PHP payload, establishing the network breach (📸 6 - 12). |  
+| PrivEsc | 20 mins | CRITICAL | Privilege Escalation | SUID misconfiguration discovered and exploited to seize Root access (📸 14 - 16). |  
+| Objective | 5 mins | N/A | Exfiltration | Root flag retrieved; Full Operational Control confirmed. |
+
+---
+
+## Technical Proof & Screenshots (19 Step-by-Step Evidence)  
+
+> WARNING: These 19 steps represent the verifiable, forensic evidence of the attack. Every step confirms a security failure. Raw logs and unredacted screenshots are included in the NDA delivery package.
+
+| ID | Command / Action Taken (AS PROVIDED) | Attacker Focus / Criticality Analysis |  
+|---|---|---|  
+| 📸 1 | nmap -sC -sV -p- 10.65.147.161 -oN nmap-internal.txt | Initial Fingerprinting: Identifying the host and open HTTP service. |  
+| 📸 2 | gobuster dir -u http://10.65.147.161 -w /usr/share/wordlists/dirb/common.txt... | Attack Path Mapped: Discovery of the dangerously exposed /upload directory. |  
+| 📸 3 | nikto -h http://10.65.147.161 | Initial Flaw Check: Identifying potential server configuration weaknesses. |  
+| 📸 6 | http://10.65.147.161/admin / http://10.65.147.161/upload | THE FOCUSED TARGET: Confirmation of the insecure file upload entry point. |  
+| 📸 7 | Burp Suite Intercept | Weaponization: Bypassing any superficial front-end validation. |  
+| 📸 8 | Malicious Payload Upload Attempt (php-reverse-shell.php) | THE BREACH ATTEMPT: Injecting the Remote Code Execution script. |  
+| 📸 9 | http://10.65.147.161/uploads/shell.php | RCE CONFIRMED: Payload execution successful, validating the critical flaw. |  
+| 📸 10 | nc -lvnp 4444 | C2 Setup: Establishing the command and control channel. |  
+| 📸 11 | Reverse Shell Connected | Initial Foothold: Low-privileged shell access obtained. |  
+| 📸 12 | python -c 'import pty; pty.spawn("/bin/bash")' | Stabilization: Ensuring reliable command execution for the next stage. |  
+| 📸 13 | whoami, id, hostname | User Context: Verification of initial low-privilege access (e.g., www-data). |  
+| 📸 14 | sudo -l / find / -perm -4000 -type f 2>/dev/null | PrivEsc Enumeration: Trivial discovery of the SUID backdoor (/usr/bin/script). |  
+| 📸 15 | /usr/bin/script -p /bin/bash | SYSTEM TAKEOVER: Execution of the SUID exploit. |  
+| 📸 16 | whoami (Output: root) | FINAL COMPROMISE: Highest privilege level achieved. Full Control Demonstrated. |  
+| 📸 18 | cat /root/root.txt | Objective 2: Root flag retrieved. Irrefutable Proof of Breach. |  
+| (Remaining 4 Screenshots: Documentation and supporting recon data) | | (📸 4, 📸 5, 📸 17, 📸 19 provide contextual proof for initial recon and final verification). |
+
+---
+
+## Remediation Roadmap (Prioritized with tickets)  
+Action must be taken within the next 7 days to eliminate the immediate threat.
+
+| Urgency | Ticket ID | Finding | Action Required (Non‑Negotiable Implementation) |  
+|---|---|---|---|  
+| P0 (Immediate) | SEC-RCE-001 | Unrestricted File Upload | IMMEDIATELY disable script handlers (.php, .phtml) within the /uploads directory. Implement server‑side Whitelisting for extensions (only accept .jpg, .png). |  
+| P0 (Immediate) | SEC-LPE-001 | Misconfigured SUID Binary | IMMEDIATELY revoke SUID privileges from /usr/bin/script (chmod u-s /usr/bin/script). Audit ALL SUID binaries for similar flaws. |  
+| P1 (Short-Term) | SEC-WEB-002 | Weak Validation | Deploy a Web Application Firewall (WAF) and enforce comprehensive input/output sanitization on the web application code base. |  
+| P2 (Long-Term) | SEC-LIN-002 | Least Privilege | Implement AppArmor / SELinux profiles to enforce mandatory access controls, severely restricting the web user’s capabilities even if compromised. |
+
+---
+
+## CVSS & CWE Justification (Forensic Depth)  
+This analysis confirms the severity of the findings, adhering to international industry standards (CVSS v3.1).
+
+| Finding | CVSS (v3.1) Base Score | Vector String | CWE | Rationale (High‑Impact Analysis) |  
+|---|---|---|---|---|  
+| WEB-01 | 9.8 (CRITICAL) | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CWE‑434 | The exploit requires no authentication (PR:N) and has High Impact across Confidentiality, Integrity, and Availability (C:H / I:H / A:H). |  
+| LIN-01 | 8.8 (HIGH) | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | CWE‑276 | Local access (AV:L) is required, but once breached (PR:L), the privilege escalation is guaranteed, granting High Impact (Root access) across the board. |
+
+---
+
+## Risk Matrix & Business Impact (The Real Cost)  
+
+| Impact Type | Severity | Description of Guaranteed Compromise |  
+|---|---|---|  
+| Operational | CRITICAL | Ransomware Deployment: Immediate file encryption, guaranteed system downtime, and recovery costing days or weeks. |  
+| Financial | HIGH | Data Exfiltration: Theft of customer / proprietary data and financial penalties, coupled with massive costs for incident response and legal fees. |  
+| Reputational | CRITICAL | Public Defacement: Immediate loss of customer trust and long-term damage to brand equity. |  
+
+*Mitigation Stance:* The security architecture must shift from ‘Trust but Verify’ to a *Zero‑Trust* model.
+
+---
+
+## Delivery Package & Notes  
+Recommended repository structure for professional delivery:
+
+THM27_Internal_Web_Exploit_CRITICAL/
+├─ THM27_Internal_Report.md         # (This Full English Premium Report)
+├─ THM27_Internal_Report.pdf        # (The Final, Board‑Ready PDF)
+└─ screenshots_raw_evidence/
+   ├─ SS01_Nmap_10.65.147.161_2025-11-21_10-05.png
+   ├─ … (All 19 timestamped screenshots for forensic evidence)
+   └─ SS19_SystemSummary_10.65.147.161_2025-11-21_11-30.png
+└─ logs/
+   ├─ nmap_log_redacted.txt
+   ├─ shell_session_full_redacted.txt
+   └─ burp_requests.xml (Key RCE request data)
+
+---
+
+## Evidence / Redaction Policy  
+Public (Client Facing): All sensitive information (flags, keys, tokens) is redacted. Safe excerpts are retained for reproducibility.  
+Private (Forensic Evidence): The full raw logs and 19 unredacted screenshots are available under a signed Non‑Disclosure Agreement (NDA) and will be delivered via a secure, encrypted channel (SFTP / Secure Cloud Link).
+
+---
+
+## One‑page Executive Summary (Board‑ready)  
+> TryHackMe — Room #27 (Internal) — CRITICAL EXECUTIVE ALERT  
+>  
+> Context: Assessment confirmed a two‑stage critical failure on the internal host (10.65.147.161). Stage 1: Remote Code Execution (RCE) was achieved via an Unrestricted File Upload. Stage 2: Trivial Root Escalation was achieved using a misconfigured SUID binary. This is a guaranteed path to complete system takeover.  
+>  
+> Immediate Risk: *CRITICAL* (Full system control by external attacker).  
+>  
+> Impact: Deployment of ransomware, mass data exfiltration, and lateral attack staging.  
+>  
+> Key Actions (0‑7 days):  
+> - P0 URGENT FIX (SEC‑RCE‑001): Disable script execution in upload directories.  
+> - P0 URGENT FIX (SEC‑LPE‑001): Remove SUID privileges from /usr/bin/script & audit.  
+>  
+> Bottom line: Fix P0 items within the next 7 days. The current risk posture is indefensible.
+
+---
+
+## Fiverr / Client‑Ready Package Suggestions  
+
+Suggested gig title: *"ELITE Pentest Report | RCE & Root LPE Validation (19 Step PoC Included)"*
+
+| Package | Price | Focus | Delivery |  
+|---|---|---|---|  
+| Basic | $15 | Single room redacted PDF, Executive Summary, 5 key screenshots | 48 hours |  
+| Standard | $50 | 5-room bundle, Detailed remediation steps, 10 Screenshots | 72 hours |  
+| Premium | $150 | 10-room bundle, All 19 raw artifacts under NDA, 30-min remediation call | 7 days |
+
+---
+
+## References & Framework Mapping  
+- MITRE ATT&CK Framework: [T1595](https://attack.mitre.org/techniques/T1595/), [T1509](https://attack.mitre.org/techniques/T1509/), [T1071](https://attack.mitre.org/techniques/T1071/), [T1548.001](https://attack.mitre.org/techniques/T1548/001/)  
+- OWASP Top 10 (2021): [A01:2021 Broken Access Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control/), [A04:2021 Insecure Design](https://owasp.org/Top10/A04_2021-Insecure_Design/)  
+- NIST SP 800‑115: [Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+
+---
+
+## Personal Note to Client & Licensing  
+> Dear Client,  
+>  
+> This A+ Premium report is now complete, providing the elite international standard of documentation you requested. The language used is specifically designed to communicate the critical, time‑sensitive nature of the vulnerabilities to your decision-makers. The integration of the 19 forensic steps provides irrefutable proof.  
+>  
+> Your next steps should be to assign the P0 tickets immediately.  
+>  
+> I can now generate the client‑ready PDF, prepare the raw artifacts zip, or create the final Fiverr package descriptions — which one would you like me to do next?  
+>  
+> *Prepared by:* Asibur Rahaman — Ethical Hacker & Cybersecurity Specialist  
+> 📧 asib51639@gmail.com  
+> *Prepared on:* November 21, 2025  
+> *License:* [CC BY‑NC‑SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — Educational, non-commercial reuse is permitted with attribution to Asibur Rahaman. Commercial use requires explicit written consent.
