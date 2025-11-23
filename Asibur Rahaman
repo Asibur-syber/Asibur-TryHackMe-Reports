@@ -1,17 +1,16 @@
-
 🧪 TryHackMe Internal – Penetration Test Report (A+ Premium — Zero‑Trust Edition)
 
 <p align="center">  
 <img src="https://i.imgur.com/MNlo0V7.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">  
 </p>  
 
-*Client:* TryHackMe — Room #27 (Internal) — Educational Simulation  
-*Project:* CRITICAL Web Exposure and Post-Exploitation Assessment  
-*Date:* November 21, 2025  
-*Version:* 2.2 (A+ Premium — Elite International Standard)  
-*Prepared by:* Asibur Rahaman  
-*Title:* Ethical Hacker & Cybersecurity Specialist  
-*Contact:* 📧 asib51639@gmail.com | 🌐 GitHub — [Asibur-syber](https://github.com/Asibur-syber)
+**Client:** TryHackMe — Room #27 (Internal) — Educational Simulation  
+**Project:** CRITICAL Web Exposure and Post-Exploitation Assessment  
+**Date:** November 21, 2025  
+**Version:** 2.2 (A+ Premium — Elite International Standard)  
+**Prepared by:** Asibur Rahaman  
+**Title:** Ethical Hacker & Cybersecurity Specialist  
+**Contact:** 📧 asib51639@gmail.com | 🌐 GitHub — [Asibur-syber](https://github.com/Asibur-syber)
 
 ---
 
@@ -62,7 +61,7 @@ Methodology (MITRE ATT&CK Aligned)
 | Tool | Purpose | Version / Notes |  
 |---|---|---|  
 | [Nmap](https://nmap.org/) | Host Discovery and Network Fingerprinting | nmap 7.93 |  
-| [Gobuster](https://github.com/OJ/gobuster) | Critical Directory/Path Discovery (Attack Surface Enumeration) | gobuster 3.x |  
+| [Gobuster](https://github.com/OJ/gobuster) | Critical Directory/Path Discovery (Attack Surface Enumeration) | gobuster 3.x |  
 | [Nikto](https://cirt.net/Nikto2) | Aggressive Web Server Misconfiguration Scan | Nikto 2.1.6 |  
 | [Burp Suite](https://portswigger.net/burp) | Payload Delivery and Request Tampering (Evidence Generation) | Professional/Community Edition |  
 | Netcat (nc) | Essential C2 Channel Listener and Connection Validation | nc (openbsd) |  
@@ -84,13 +83,13 @@ Overall Risk: 🔴 CRITICAL — These vulnerabilities represent a total breakdow
 
 ## Detailed Vulnerability Analysis: The Attack Path  
 
-*WEB-01 — Unrestricted File Upload → RCE (CRITICAL - P0)*  
+**WEB-01 — Unrestricted File Upload → RCE (CRITICAL - P0)**  
 Description: The vulnerability lies in the /upload endpoint, which implicitly trusts all user input. The lack of server-side validation on file extensions (allowing .php) and file content means the application is weaponized against itself. This is a single-point-of-failure for network security.  
 Impact (The Fear Factor): This is the equivalent of leaving the vault door open. Any attacker can remotely inject and execute arbitrary malicious code on your hosting server. This grants initial access which is the hardest stage for a legitimate attacker and the easiest stage for a hostile one. Your server is currently functioning as an attacker-controlled drone.  
 Lab PoC Highlights (See 📸 8 & 📸 9): The use of a basic php-reverse-shell.php proves no advanced hacking techniques are required. The shell was received instantaneously upon browsing to the uploaded file.  
 Jira Ticket: SEC-RCE-001 — CRITICAL: IMMEDIATE — Disable script execution and enforce Whitelisting in all upload paths.  
 
-*LIN-01 — Misconfigured SUID Binary: Root Access (HIGH - P0)*  
+**LIN-01 — Misconfigured SUID Binary: Root Access (HIGH - P0)**  
 Description: Post-exploitation analysis revealed that the internal Linux configuration is fundamentally flawed. A standard system binary, /usr/bin/script, has the SUID bit set, meaning any low-privileged user (like the web server user achieved in WEB-01) can execute it with the permissions of the file owner, which is Root.  
 Impact (System Takeover): This flaw is a system backdoor installed by misconfiguration. It provides a non-traceable, unauthenticated straight-line path to full administrative control (Root). An attacker can immediately pivot from a low-level beachhead to total system dominance, enabling kernel-level persistence and complete data control.  
 Lab PoC Highlights (See 📸 14, 📸 15, & 📸 16): The exploit required a single, simple command line argument to execute /bin/bash as the root user. This ease of execution dramatically elevates the risk score.  
@@ -164,7 +163,7 @@ This analysis confirms the severity of the findings, adhering to international i
 | Financial | HIGH | Data Exfiltration: Theft of customer / proprietary data and financial penalties, coupled with massive costs for incident response and legal fees. |  
 | Reputational | CRITICAL | Public Defacement: Immediate loss of customer trust and long-term damage to brand equity. |  
 
-*Mitigation Stance:* The security architecture must shift from ‘Trust but Verify’ to a *Zero‑Trust* model.
+**Mitigation Stance:** The security architecture must shift from ‘Trust but Verify’ to a **Zero‑Trust** model.
 
 ---
 
@@ -196,13 +195,13 @@ Private (Forensic Evidence): The full raw logs and 19 unredacted screenshots are
 >  
 > Context: Assessment confirmed a two‑stage critical failure on the internal host (10.65.147.161). Stage 1: Remote Code Execution (RCE) was achieved via an Unrestricted File Upload. Stage 2: Trivial Root Escalation was achieved using a misconfigured SUID binary. This is a guaranteed path to complete system takeover.  
 >  
-> Immediate Risk: *CRITICAL* (Full system control by external attacker).  
+> Immediate Risk: **CRITICAL** (Full system control by external attacker).  
 >  
 > Impact: Deployment of ransomware, mass data exfiltration, and lateral attack staging.  
 >  
 > Key Actions (0‑7 days):  
 > - P0 URGENT FIX (SEC‑RCE‑001): Disable script execution in upload directories.  
-> - P0 URGENT FIX (SEC‑LPE‑001): Remove SUID privileges from /usr/bin/script & audit.  
+> - P0 URGENT FIX (SEC‑LPE‑001): Remove SUID privileges from `/usr/bin/script` & audit.  
 >  
 > Bottom line: Fix P0 items within the next 7 days. The current risk posture is indefensible.
 
@@ -210,7 +209,7 @@ Private (Forensic Evidence): The full raw logs and 19 unredacted screenshots are
 
 ## Fiverr / Client‑Ready Package Suggestions  
 
-Suggested gig title: *"ELITE Pentest Report | RCE & Root LPE Validation (19 Step PoC Included)"*
+Suggested gig title: **"ELITE Pentest Report | RCE & Root LPE Validation (19 Step PoC Included)"**
 
 | Package | Price | Focus | Delivery |  
 |---|---|---|---|  
@@ -236,7 +235,8 @@ Suggested gig title: *"ELITE Pentest Report | RCE & Root LPE Validation (19 Step
 >  
 > I can now generate the client‑ready PDF, prepare the raw artifacts zip, or create the final Fiverr package descriptions — which one would you like me to do next?  
 >  
-> *Prepared by:* Asibur Rahaman — Ethical Hacker & Cybersecurity Specialist  
+> **Prepared by:** Asibur Rahaman — Ethical Hacker & Cybersecurity Specialist  
 > 📧 asib51639@gmail.com  
-> *Prepared on:* November 21, 2025  
-> *License:* [CC BY‑NC‑SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — Educational, non-commercial reuse is permitted with attribution to Asibur Rahaman. Commercial use requires explicit written consent.
+> **Prepared on:** November 21, 2025  
+> **License:** [CC BY‑NC‑SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — Educational, non-commercial reuse is permitted with attribution to Asibur Rahaman. Commercial use requires explicit written consent.
+
