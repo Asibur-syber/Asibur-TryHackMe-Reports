@@ -16,7 +16,7 @@
 
 ---
 
-# Table of Contents
+## Table of Contents
 - [Executive TL;DR: The Immediate Root Risk](#executive-tldr-the-immediate-root-risk)
 - [Scope & Engagement](#scope--engagement)
 - [Testing Tools & Environment](#testing-tools--environment)
@@ -162,65 +162,75 @@ All screenshots and raw logs are available in the repository under /screenshots/
 
 > Sensitive values (IP addresses, flags, session tokens) have been redacted in public copies — full artifacts are available on request under NDA.
 
-* **Nmap Full Scan (SS01)**  
-  * Description: Full Nmap scan showing open ports and service fingerprints.  
-  * Notes: Command used: nmap -sC -sV -p- `<target>`
+All screenshots and raw logs are stored in the repository under /screenshots/ and /logs/ respectively.  
+Sensitive values (flags, credentials) have been redacted in public copies — full artifacts are available on request under NDA (Non-Disclosure Agreement).
 
-* **Gobuster Directory Scan (SS02)**  
-  * Description: Directory enumeration results showing discovered paths, including the key application path.  
-  * Notes: Wordlist used: common.txt
+1. **Nmap Scan (SS01)**  
+   ![SS01 – Nmap Scan](IMAGE_LINK_01)  
+   *Initial full-port scan showing open services and fingerprints.*
 
-* **Website Homepage (SS03)**  
-  * Description: Default homepage of the target web server, identifying the application type.  
-  * Notes: Helps identify framework or CMS.
+2. **Website Access (SS02)**  
+   ![SS02 – Website Access](IMAGE_LINK_02)  
+   *Target web service loaded successfully in the browser.*
 
-* **Identifying Vulnerable Parameter (SS04)**  
-  * Description: Discovery of the LFI-vulnerable URL parameter via inspection or testing.  
-  * Notes: Vulnerable parameter sanitized.
+3. **robots.txt Enumeration (SS03)**  
+   ![SS03 – robots.txt Enumeration](IMAGE_LINK_03)  
+   *Extracted disallowed paths using curl.*
 
-* **LFI Test: Reading /etc/passwd (SS05)**  
-  * Description: Attempting a path traversal attack to read a known sensitive file.  
-  * Notes: Payload: ../../../etc/passwd
+4. **FuelCMS Login Page (SS04)**  
+   ![SS04 – FuelCMS Login Page](IMAGE_LINK_04)  
+   *CMS authentication panel discovered at /fuel.*
 
-* **LFI Success (SS06)**  
-  * Description: Successful LFI confirmed by viewing the system user database.  
-  * Notes: User accounts redacted.
+5. **Fuel CMS Dashboard (SS05)**  
+   ![SS05 – Fuel CMS Dashboard](IMAGE_LINK_05)  
+   *Successful login to the Fuel CMS dashboard interface.*
 
-* **Preparing RCE Payload (SS07)**  
-  * Description: Preparing the custom command injection payload leveraging the LFI path.  
-  * Notes: Shows Netcat listening on port 80 or 22 for log injection.
+6. **Gobuster Directory Scan (SS06)**  
+   ![SS06 – Gobuster Scan](IMAGE_LINK_06)  
+   *Enumerated directories using the common wordlist.*
 
-* **RCE Command Execution Request (SS08)**  
-  * Description: Execution of the crafted LFI payload to trigger RCE via the vulnerable parameter.  
-  * Notes: Access path partially sanitized.
+7. **Server Response Headers (SS07)**  
+   ![SS07 – Server Response Headers](IMAGE_LINK_07)  
+   *Displayed HTTP headers via curl -I.*
 
-* **RCE Confirmation (Initial) (SS09)**  
-  * Description: Arbitrary command execution successfully verified via web output.  
-  * Notes: Shows compromised server response.
+8. **SearchSploit Fuel CMS (SS08)**  
+   ![SS08 – SearchSploit Result](IMAGE_LINK_08)  
+   *FuelCMS known RCE exploit identified.*
 
-* **Root Access Confirmation (SS10)**  
-  * Description: CRITICAL FINDING: Confirming the compromised user is the highest privileged user: root.  
-  * Notes: Privilege Escalation NOT Required.
+9. **Exploit Execution (SS09)**  
+   ![SS09 – Exploit Execution](IMAGE_LINK_09)  
+   *RCE exploit executed against the CMS endpoint.*
 
-* **Root Directory Enumeration (SS11)**  
-  * Description: Listing the contents of the /root/ directory to locate the final flag.  
-  * Notes: Directory contents sanitized.
+10. **Webshell Upload (SS10)**  
+   ![SS10 – Webshell Upload](IMAGE_LINK_10)  
+   *PHP shell uploaded to server via vulnerable upload point.*
 
-* **Retrieving user.txt Flag (SS12)**  
-  * Description: Retrieved user flag from compromised machine.  
-  * Notes: Flag redacted.
+11. **Reverse Shell Listener (SS11)**  
+   ![SS11 – Reverse Shell Listener](IMAGE_LINK_11)  
+   *Netcat listener successfully established on port 4444.*
 
-* **Retrieving root.txt Flag (SS13)**  
-  * Description: Retrieved root flag after confirming system dominance.  
-  * Notes: Sensitive parts hidden.
+12. **Initial Foothold Enumeration (SS12)**  
+   ![SS12 – Foothold Enumeration](IMAGE_LINK_12)  
+   *Basic enumeration with whoami, id, and hostname.*
 
-* **System Information Capture (SS14)**  
-  * Description: Capturing operating system and kernel information for forensic documentation.  
-  * Notes: Hostnames and OS versions redacted.
+13. **Privilege Escalation Enumeration (SS13)**  
+   ![SS13 – PrivEsc Enumeration](IMAGE_LINK_13)  
+   *LinPEAS and sudo -l output for privilege escalation mapping.*
 
-* **Post-Compromise Cleanup (SS15)**  
-  * Description: Final action: Simulating an attacker attempting to cover their tracks by deleting log entries.  
-  * Notes: Shows commands like rm /tmp/shell.php or log file manipulation.
+14. **Root Proof (SS14)**  
+   ![SS14 – Root Proof](IMAGE_LINK_14)  
+   *Confirmed root access with UID 0 evidence.*
+
+15. **Flag Capture (SS15)**  
+   ![SS15-1 – User Flag](IMAGE_LINK_USER_FLAG)  
+   *User flag captured from /home/*/user.txt.*
+
+   ![SS15-2 – Root Flag](IMAGE_LINK_ROOT_FLAG)  
+   *Root flag captured from /root/root.txt.*
+
+16. **System Artefacts (SS16)**  
+   ![SS16 – System Artefacts](IMAGE_LINK_16)  
+   *Crontabs, processes, and passwd file reviewed as artefacts.*
 
 ---
 
