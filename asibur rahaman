@@ -91,6 +91,8 @@ Full Kill Chain simulation:
 ### Actions on Objective (Impact): Demonstrating total control via flag retrieval  
 🔗 Impact Tactic: https://attack.mitre.org/tactics/TA0040/
 
+---
+
 ## Testing Tools & Environment
 
 | Tool | Purpose | Version / Notes |
@@ -101,6 +103,8 @@ Full Kill Chain simulation:
 | [Netcat (nc)](https://nc110.sourceforge.net/) | Essential C2 Channel Listener and Connection Validation | nc (openbsd) |
 | Standard Linux Tools | Post-Exploitation Command Execution | whoami, id, cat |
 
+---
+
 ## Findings Overview (Critical Summary)
 
 | ID | Finding Title | CVSS (v3) |
@@ -110,6 +114,8 @@ Full Kill Chain simulation:
 | WEB-02 | Exposed Web Server Version | 5.3 |
 
 Overall Risk: 🔴 CRITICAL — These two critical vulnerabilities (WEB-01 and SYS-01) combine to form a seamless, non-stop progression from unauthenticated external access to complete system dominance.
+
+---
 
 ## Detailed Vulnerability Analysis: The Attack Path
 
@@ -133,6 +139,8 @@ Lab PoC Highlights (See 📸 10): The command whoami executed via the RCE channe
 
 Jira Ticket: SEC-POLP-001 — IMMEDIATE — Reconfigure the web server (Apache/Nginx/Ignition) to run with a dedicated, unprivileged service account (e.g., www-data). NEVER run public-facing services as Root.
 
+---
+
 ## Exploitation Timeline (Verified Kill Chain)
 
 | Phase | Time Taken | Risk Level |
@@ -141,6 +149,8 @@ Jira Ticket: SEC-POLP-001 — IMMEDIATE — Reconfigure the web server (Apache/N
 | Initial Access | 15 mins | CRITICAL |
 | PrivEsc | 0 mins | CRITICAL |
 | Objective | 5 mins | N/A |
+
+---
 
 ## Technical Proof & Screenshots (15 Step-by-Step Evidence)
 
@@ -212,6 +222,8 @@ All screenshots and raw logs are available in the repository under /screenshots/
   * Description: Final action: Simulating an attacker attempting to cover their tracks by deleting log entries.  
   * Notes: Shows commands like rm /tmp/shell.php or log file manipulation.
 
+---
+
 ## Remediation Roadmap (Prioritized with tickets)
 Action must be taken within the next 7 days to eliminate the immediate threat.
 
@@ -221,6 +233,8 @@ P0 (Immediate) | SEC-RCE-002 | LFI → RCE | IMMEDIATELY disable LFI vectors. En
 P0 (Immediate) | SEC-POLP-001 | Running as Root | IMMEDIATELY reconfigure the web server to run with an unprivileged service account (e.g., www-data). Conduct a full PoLP audit across all services.  
 P1 (Short-Term) | SEC-WEB-003 | Exposed Version | Implement custom error pages and proxy settings to suppress all server and application version headers.  
 P2 (Long-Term) | SEC-DEV-001 | Insecure Design | Conduct a comprehensive source code audit to identify and fix all instances of implicit trust in user-supplied input.
+
+---
 
 ## CVSS & CWE Justification (Forensic Depth)
 This analysis confirms the severity of the findings, adhering to international industry standards (CVSS v3.1).  
@@ -232,6 +246,8 @@ Finding | CVSS (v3.1) Base Score | Vector String | CWE
 WEB-01 | 9.8 (CRITICAL) | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CWE-22  
 SYS-01 | 9.8 (CRITICAL) | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CWE-250  
 
+---
+
 ## Risk Matrix & Business Impact (The Real Cost)
 Impact Type | Severity | Description of Guaranteed Compromise
 --- | --- | ---
@@ -241,6 +257,8 @@ Reputational | CRITICAL | Public Defacement: Immediate loss of customer trust an
 
 ### Mitigation Stance
 The security architecture must shift from ‘Trust but Verify’ to a Zero‑Trust model, isolating the web application entirely from privileged system resources.
+
+---
 
 ## Delivery Package & Notes
 Recommended repository structure for professional delivery:
@@ -259,9 +277,13 @@ THM29_Ignite_RCE_Root_CRITICAL/
       └─ burp_requests.xml      # (Key LFI/RCE request data)
 ```
 
+---
+
 ## Evidence / Redaction Policy
 Public (Client Facing): All sensitive information (flags, keys, tokens) is redacted. Safe excerpts are retained for reproducibility.  
 Private (Forensic Evidence): The full raw logs and 15 unredacted screenshots are available under a signed Non‑Disclosure Agreement (NDA) and will be delivered via a secure, encrypted channel (SFTP / Secure Cloud Link).
+
+---
 
 ## One‑page Executive Summary (Board‑ready)
 > **TryHackMe — Room #29 (Ignite) — CRITICAL EXECUTIVE ALERT**  
@@ -276,6 +298,8 @@ Private (Forensic Evidence): The full raw logs and 15 unredacted screenshots are
 
 Bottom line: Fix P0 items within the next 7 days. The current risk posture is indefensible.
 
+---
+
 ## Fiverr / Client‑Ready Package Suggestions
 Suggested gig title: **"ELITE Pentest Report | LFI → RCE & Root Validation (15 Step PoC Included)"**
 
@@ -284,6 +308,8 @@ Package | Price | Focus | Delivery
 Basic | $15 | Single room redacted PDF, Executive Summary, 5 key screenshots | 48 hours  
 Standard | $50 | 5-room bundle, Detailed remediation steps, 10 Screenshots | 72 hours  
 Premium | $150 | 10-room bundle, All 15 raw artifacts under NDA, 30-min remediation call | 7 days  
+
+---
 
 ## References & Framework Mapping
 **MITRE ATT&CK:** https://attack.mitre.org/  
@@ -294,11 +320,15 @@ Framework Techniques: T1595, T1059, T1070
 **NIST SP 800‑115:**  
 PDF: https://csrc.nist.gov/publications/detail/sp/800-115/final  
 
+---
+
 ## Personal Note to Client & Licensing
 > Dear Client,  
 This A+ Premium report is now complete, providing the elite international standard of documentation you requested. The language used is specifically designed to communicate the critical, time‑sensitive nature of the vulnerabilities to your decision-makers. The integration of the 15 forensic steps provides irrefutable proof.  
 Your next steps should be to assign the P0 tickets immediately.  
 I can now generate the client‑ready PDF, prepare the raw artifacts zip, or create the final Fiverr package descriptions — which one would you like me to do next?  
+
+---
 
 Prepared by: **Asibur Rahaman — Ethical Hacker & Cybersecurity Specialist**  
 📧 **asib51639@gmail.com**  
