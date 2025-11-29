@@ -237,14 +237,15 @@ P2 (Long-Term) | SEC-DEV-001 | Insecure Design | Conduct a comprehensive source 
 ---
 
 ## CVSS & CWE Justification (Forensic Depth)
-This analysis confirms the severity of the findings, adhering to international industry standards (CVSS v3.1).  
-**CVSS Calculator:** https://www.first.org/cvss/calculator/3.1  
-**CWE Database:** https://cwe.mitre.org/
+This analysis confirms the severity of the findings, adhering to international industry standards (CVSS v3.1).
 
-Finding | CVSS (v3.1) Base Score | Vector String | CWE
---- | --- | --- | ---
-WEB-01 | 9.8 (CRITICAL) | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CWE-22  
-SYS-01 | 9.8 (CRITICAL) | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CWE-250  
+- **CVSS v3.1 Calculator (Official):** [https://www.first.org/cvss/calculator/3.1](https://www.first.org/cvss/calculator/3.1)  
+- **CWE (Common Weakness Enumeration) Database:** [https://cwe.mitre.org/](https://cwe.mitre.org/)
+
+| Finding | CVSS (v3.1) Base Score | Vector String | CWE |
+|---------|----------------------|---------------|-----|
+| **WEB-01** | 9.8 **CRITICAL** | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | [CWE-22: Path Traversal](https://cwe.mitre.org/data/definitions/22.html) |
+| **SYS-01** | 9.8 **CRITICAL** | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | [CWE-250: Execution with Unnecessary Privileges](https://cwe.mitre.org/data/definitions/250.html) |
 
 ---
 
