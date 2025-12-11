@@ -1,7 +1,7 @@
 # 🧪 TryHackMe Ignite – Penetration Test Report (A+ Premium — Zero-Trust Edition)
 
 <p align="center">
-<img src="https://i.imgur.com/CK6G7zy.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">
+<img src="https://i.imgur.com/dBvJyht.jpeg" alt="Cybersecurity Portfolio Banner" width="100%">
 </p>
 
 **Client:** TryHackMe — Room #29 (Ignite) — Educational Simulation  
@@ -166,71 +166,74 @@ All screenshots and raw logs are stored in the repository under /screenshots/ an
 Sensitive values (flags, credentials) have been redacted in public copies — full artifacts are available on request under NDA (Non-Disclosure Agreement).
 
 1. **Nmap Scan (SS01)**  
-   ![SS01 – Nmap Scan](IMAGE_LINK_01)  
+   ![SS01 – Nmap Scan](https://i.imgur.com/CzVex4j.jpeg)  
    *Initial full-port scan showing open services and fingerprints.*
 
 2. **Website Access (SS02)**  
-   ![SS02 – Website Access](IMAGE_LINK_02)  
+   ![SS02 – Website Access](https://i.imgur.com/vmUqdK7.jpeg)  
    *Target web service loaded successfully in the browser.*
 
 3. **robots.txt Enumeration (SS03)**  
-   ![SS03 – robots.txt Enumeration](IMAGE_LINK_03)  
+   ![SS03 – robots.txt Enumeration](https://i.imgur.com/Q7qqwp6.jpeg)  
    *Extracted disallowed paths using curl.*
 
 4. **FuelCMS Login Page (SS04)**  
-   ![SS04 – FuelCMS Login Page](IMAGE_LINK_04)  
+   ![SS04 – FuelCMS Login Page](https://i.imgur.com/h60Xy6U.jpeg)  
    *CMS authentication panel discovered at /fuel.*
 
 5. **Fuel CMS Dashboard (SS05)**  
-   ![SS05 – Fuel CMS Dashboard](IMAGE_LINK_05)  
+   ![SS05 – Fuel CMS Dashboard](https://i.imgur.com/OvxZG5e.jpeg)  
    *Successful login to the Fuel CMS dashboard interface.*
 
 6. **Gobuster Directory Scan (SS06)**  
-   ![SS06 – Gobuster Scan](IMAGE_LINK_06)  
+   ![SS06 – Gobuster Scan](https://i.imgur.com/iIq1dwa.jpeg)  
    *Enumerated directories using the common wordlist.*
 
 7. **Server Response Headers (SS07)**  
-   ![SS07 – Server Response Headers](IMAGE_LINK_07)  
+   ![SS07 – Server Response Headers](https://i.imgur.com/xcXkugb.jpeg)  
    *Displayed HTTP headers via curl -I.*
 
 8. **SearchSploit Fuel CMS (SS08)**  
-   ![SS08 – SearchSploit Result](IMAGE_LINK_08)  
+   ![SS08 – SearchSploit Result](https://i.imgur.com/e0PsVvT.jpeg)  
    *FuelCMS known RCE exploit identified.*
 
 9. **Exploit Execution (SS09)**  
-   ![SS09 – Exploit Execution](IMAGE_LINK_09)  
+   ![SS09 – Exploit Execution](https://i.imgur.com/Ab4iZG1.jpeg)  
    *RCE exploit executed against the CMS endpoint.*
 
 10. **Webshell Upload (SS10)**  
-   ![SS10 – Webshell Upload](IMAGE_LINK_10)  
+   ![SS10 – Webshell Upload](https://i.imgur.com/IoYFKnH.jpeg)  
    *PHP shell uploaded to server via vulnerable upload point.*
 
 11. **Reverse Shell Listener (SS11)**  
-   ![SS11 – Reverse Shell Listener](IMAGE_LINK_11)  
+   ![SS11 – Reverse Shell Listener](https://i.imgur.com/qaNDlxv.jpeg)  
    *Netcat listener successfully established on port 4444.*
 
 12. **Initial Foothold Enumeration (SS12)**  
-   ![SS12 – Foothold Enumeration](IMAGE_LINK_12)  
+   ![SS12 – Foothold Enumeration](https://i.imgur.com/T24zGDU.jpeg)  
    *Basic enumeration with whoami, id, and hostname.*
 
 13. **Privilege Escalation Enumeration (SS13)**  
-   ![SS13 – PrivEsc Enumeration](IMAGE_LINK_13)  
+   ![SS13 – PrivEsc Enumeration](https://i.imgur.com/c10FGCL.jpeg)  
    *LinPEAS and sudo -l output for privilege escalation mapping.*
 
 14. **Root Proof (SS14)**  
-   ![SS14 – Root Proof](IMAGE_LINK_14)  
+   ![SS14 – Root Proof](https://i.imgur.com/SvgFmgQ.jpeg)  
    *Confirmed root access with UID 0 evidence.*
 
 15. **Flag Capture (SS15)**  
-   ![SS15-1 – User Flag](IMAGE_LINK_USER_FLAG)  
+   ![SS15-1 – User Flag](https://i.imgur.com/ebmvyLs.jpeg)  
    *User flag captured from /home/*/user.txt.*
 
-   ![SS15-2 – Root Flag](IMAGE_LINK_ROOT_FLAG)  
+   ![SS15-2 – Root Flag](https://i.imgur.com/WWgK1ta.jpeg)  
    *Root flag captured from /root/root.txt.*
 
 16. **System Artefacts (SS16)**  
-   ![SS16 – System Artefacts](IMAGE_LINK_16)  
+   ![SS16 – System Artefacts](https://i.imgur.com/SN5t4DD.jpeg)  
    *Crontabs, processes, and passwd file reviewed as artefacts.*
+
+> 🎨 Visual badge / summary:  
+> ![Badge](https://i.imgur.com/i9XaFU0.jpeg)
 
 ---
 
